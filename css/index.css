@@ -1,0 +1,151 @@
+#intro {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+#intro h1 {
+	margin: 0;
+	font-size: 4.5em;
+	font-weight: 700;
+}
+
+#about, #portfolio {
+    background-color: #fff;
+    padding: 5% 15% 10% 5%;
+    text-align: center;
+	margin: 15px auto;
+	max-width: 75%;
+}
+
+#portfolio .grid-list {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+    align-items: center;
+    justify-content: center;
+	max-width: 100%;
+	margin: auto;
+}
+
+.grid-list .item {
+	position: relative;
+	display: block;
+	padding: 1.2em;
+	width: 100%;
+	max-width: 500px;
+}
+
+.grid-list .item a {
+	font-family: inherit;
+	color: inherit;
+	text-decoration: none;
+}
+
+.grid-list .item .bar {
+	display: block;
+	position: relative;
+	height: 24px;
+	z-index: 10;
+	background-color: #d3dcde;
+}
+
+.grid-list .bar h2 {
+	text-align: center;
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: 700;
+	line-height: 26px;
+	letter-spacing: -.5px;
+}
+
+.grid-list .item .bar .circle {
+	display: inline-block;
+	height: 12px;
+	width: 12px;
+	border-radius: 50%;
+	position: absolute;
+    top: 6px;
+    left: 10px;
+	background-color: #000066;
+    box-shadow: inset 5px 5px 10px #0066FF,
+		  inset 11px 15px 10px #0033CC,
+		  inset 22px 22px 16px #000099,
+		  inset -22px -22px 16px #000033,
+		  inset -11px -15px 10px #000000;
+	z-index: 11;
+}
+
+.grid-list .item .bar .chevron {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 100px
+}
+
+.grid-list .item .bar .chevron::before,
+.grid-list .item .bar .chevron::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-bottom: .75px solid;
+    border-right: .75px solid;
+}
+
+.grid-list .item .bar .chevron::before {
+	transform: rotate(45deg);
+	top: 8px;
+	right: 30px;
+}
+
+.grid-list .item .bar .chevron::after {
+	transform: rotate(220deg);	
+	top: 11px;
+	right: 20px;
+}
+
+.grid-list .item .bar .close-x {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 40px
+}
+
+.grid-list .item .bar .close-x::after,
+.grid-list .item .bar .close-x::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    width: 8px;
+    height: 0.10px;
+    background: currentColor;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    top: 12px;
+    right: 9px
+}
+.grid-list .item .bar .close-x::after {
+    transform: rotate(-45deg)
+}
+
+.grid-list .item .screenshot img {
+	max-width: 100%;
+	overflow: hidden;
+}
+
+@media only screen and (max-width: 1280px) {
+	.grid-list .item {
+	  max-width: 350px;	
+	}
+}
+
+@media only screen and (max-width: 360px) {
+	.grid-list .item .bar .circle,
+	.close-x, .chevron	{
+		display: none;
+	}
+}
