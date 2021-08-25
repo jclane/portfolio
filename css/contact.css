@@ -5,6 +5,11 @@
 	opacity: 85%;
 	padding: 15px;
 	box-shadow: 5px 5px 22px 5px black;
+	border-radius: 15px;
+}
+
+.contact-form h1 {
+	padding-bottom: 15px;
 }
 
 .grid {
@@ -15,8 +20,9 @@
 	grid-row-gap: 10px;
 }
 
-.contact-form .form-input {
+.contact-form .form-input input {
 	width: 100%;
+	padding-left: 15px;
 }
 
 .contact-form .form-submit {
