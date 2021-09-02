@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
+* {
+	box-sizing: border-box;
+}
+
 html, body {
     background-color: #f1f1f1;
     color: #222;
@@ -26,3 +30,5 @@ html, body {
     background-size: cover;
     -o-background-size: cover;
 }
+
+
