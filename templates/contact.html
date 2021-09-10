@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="header">
+  <section class="contact-form center">
+      <h1 class="center-text">Contact Me</h1>
+      <div class="errors">
+        {% for field in form.errors.values() %}
+          {% for error in field %}
+            <div class="flash">{{ error }}</div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+      <form name="contact" class="grid" action="{{ url_for("contact") }}" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.name.label }}
+        {{ form.name(class_="form-input") }}
+
+        {{ form.email.label }}
+        {{ form.email(class_="form-input") }}
+
+        {{ form.subject.label }}
+        {{ form.subject(class_="form-input") }}
+
+        {{ form.message.label }}
+        {{ form.message(class_="form-input") }}
+
+        {{ form.submit }}
+      </form>
+  </section>
+</header>
+{% endblock %}
