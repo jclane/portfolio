@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+      <meta charset="utf-8">
+      <title>Justin Lane's Portfolio - {{ page_nfo.title }}</title>
+      <meta name="description" content="{{ page_nfo.description }}">
+      <meta name="author" content="Justin Lane">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+    </head>
+
+    <body>
+
+      <div class="container">
+
+      {% block content %}{% endblock %}
+
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="./css/main.css">
+      <link rel="stylesheet" type="text/css" href="{{ page_nfo.css }}">
+    </body>
+
+</html>
