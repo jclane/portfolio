@@ -1,12 +1,25 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, render_template, request, flash
-from flask_mail import Mail
+from flask_mail import Mail, Message
+
 from forms import ContactForm
 
 
-app = Flask(__name__)
-mail = Mail()
+project_folder = os.path.expanduser("~/mysite")
+load_dotenv(os.path.join(project_folder, ".env"))
 
-app.secret_key = "#development_key!"
+app = Flask(__name__)
+app.app_context()
+app.config['MAIL_SERVER'] = os.environ.get("MAIL_SERVER")
+app.config['MAIL_PORT'] = os.environ.get("MAIL_PORT")
+app.config['MAIL_USERNAME'] = os.environ.get("MAIL_USERNAME")
+app.config['MAIL_PASSWORD'] = os.environ.get("MAIL_PASSWORD")
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+app.secret_key = os.environ.get("APP_SECRET_KEY")
+
+mail = Mail(app)
 
 @app.route("/", methods=["GET"])
 @app.route("/index.html", methods=["GET"])
@@ -31,6 +44,11 @@ def contact():
           flash(form.errors)
           return render_template("contact.html", page_nfo=page_nfo, form=form)
         else:
-          return 'Form posted.'
-    elif request.method == 'GET':
+          msg = Message(form.data["subject"],
+                        sender=form.data["email"],
+                        recipients=[os.environ.get("MAIL_TO")],
+                        body=form.data["message"])
+          mail.send(msg)
+          return render_template("contact.html", page_nfo=page_nfo, form=form)
+    elif request.method == "GET":
         return render_template('contact.html', page_nfo=page_nfo, form=form)
