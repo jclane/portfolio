@@ -1,8 +1,9 @@
 import os
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, flash
-from flask_mail import Mail, Message
+from flask_mail import Mail
 
+from format_msg import format_msg
 from forms import ContactForm
 
 
@@ -44,10 +45,7 @@ def contact():
           flash(form.errors)
           return render_template("contact.html", page_nfo=page_nfo, form=form)
         else:
-          msg = Message(form.data["subject"],
-                        sender=form.data["email"],
-                        recipients=[os.environ.get("MAIL_TO")],
-                        body=form.data["message"])
+          msg = format_msg(form.data)
           mail.send(msg)
           return render_template("contact.html", page_nfo=page_nfo, form=form)
     elif request.method == "GET":
