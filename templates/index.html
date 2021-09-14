@@ -29,71 +29,23 @@
     <section id="portfolio">
       <h1>My Portfolio</h1>
       <ul class="grid-list">
-
-        <li class="item">
-          <a href="./contact.html">
-          <div class="bar">
-          <h2>Basic Contact Form</h2>
-            <div class="circle"></div>
-            <div class="chevron"></div>
-            <div class="chevron"></div>
-            <div class="close-x"></div>
-          </div>
-          <picture class="screenshot">
-            <img src="./img/item-1.jpg">
-            <div class="overlay">blah blah blah</div>
-          </picture>
-          </a>
-        </li>
-
-        <li class="item">
-          <a href="https://github.com/jclane/blank-page">
-            <div class="bar">
-              <h2>Blank Page</h2>
-              <div class="circle"></div>
-              <div class="chevron"></div>
-              <div class="chevron"></div>
-              <div class="close-x"></div>
-            </div>
-            <picture class="screenshot">
-              <img src="./img/portfolio-item.jpg">
-              <div class="overlay">blah blah blah</div>
-            </picture>
-          </a>
-        </li>
-
-        <li class="item">
-          <a href="https://github.com/jclane/blank-page">
-            <div class="bar">
-              <h2>Blank Page</h2>
-              <div class="circle"></div>
-              <div class="chevron"></div>
-              <div class="chevron"></div>
-              <div class="close-x"></div>
-            </div>
-            <picture class="screenshot">
-              <img src="./img/portfolio-item.jpg">
-              <div class="overlay">blah blah blah</div>
-            </picture>
-          </a>
-        </li>
-
-        <li class="item">
-          <a href="https://github.com/jclane/blank-page">
-            <div class="bar">
-              <h2>Blank Page</h2>
-              <div class="circle"></div>
-              <div class="chevron"></div>
-              <div class="chevron"></div>
-              <div class="close-x"></div>
-            </div>
-            <picture class="screenshot">
-              <img src="./img/portfolio-item.jpg">
-              <div class="overlay">blah blah blah</div>
-            </picture>
-          </a>
-        </li>
-
+          {% for p in projects %}
+            <li class="item">
+              <a href={{ p["link_url"] }}>
+              <div class="bar">
+              <h2>{{ p["title"] }}</h2>
+                <div class="circle"></div>
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+                <div class="close-x"></div>
+              </div>
+              <picture class="screenshot">
+                <img src={{ p["img_url"] }} >
+                <div class="overlay">blah blah blah</div>
+              </picture>
+              </a>
+            </li>
+          {% endfor %}
       </ul>
       </section>
 

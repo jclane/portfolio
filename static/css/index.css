@@ -2,7 +2,7 @@
 	--main: #f1f1f1;
 	--secondary: #fff;
 	--terciary: #d3dcde;
-	--darkgrey: rgba(0, 0, 0, 0.7);	
+	--darkgrey: rgba(0, 0, 0, 0.7);
 }
 
 #intro {
@@ -35,12 +35,12 @@
 	max-width: 100%;
 	margin: auto;
 	list-style-type: none;
-	padding: 0;	
+	padding: 0;
 }
 
 .grid-list .item {
 	display: block;
-	flex: 0 1 30%;
+	flex: 0 0 33.33%;
 	padding: 1.2em;
 	max-width: 500px;
 }
@@ -114,7 +114,7 @@
 }
 
 .grid-list .item .bar .chevron::after {
-	transform: rotate(220deg);	
+	transform: rotate(220deg);
 	top: 11px;
 	right: 20px;
 }

@@ -1,7 +1,8 @@
 import os
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, json
 from flask_mail import Mail
+from pathlib import Path
 
 from format_msg import format_msg
 from forms import ContactForm
@@ -30,7 +31,11 @@ def index():
       "description": "Portfolio of Justin Lane",
       "css": "./css/index.css"
     }
-    return render_template("index.html", page_nfo=page_nfo)
+    path = Path("/home/jclane/mysite/static/json/projects.json")
+    with open(path, "r") as f:
+        projects = json.load(f)
+
+    return render_template("index.html", page_nfo=page_nfo, projects=projects)
 
 @app.route("/contact.html", methods=["GET", "POST"])
 def contact():
