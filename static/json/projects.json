@@ -1,0 +1,17 @@
+[
+    {
+    "title":"Contact Page",
+    "link_url":"./contact.html",
+    "img_url":"./img/screenshots/contact.jpg"
+    },
+    {
+    "title":"Example Project 1",
+    "link_url":"#",
+    "img_url":"./img/screenshots/example.jpg"
+    },
+    {
+    "title":"Example Project 2",
+    "link_url":"#",
+    "img_url":"./img/screenshots/example.jpg"
+    }
+]
