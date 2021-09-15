@@ -39,7 +39,7 @@
 }
 
 .contact-form #submit:active {
-	box-shadow: inset 2px 2px 2px rgba(50, 50, 100, .75),
+	box-shadow: inset 2px 2px 2px rgba(50, 50, 255, .75),
                 inset -2px -2px 2px rgba(var(--tertiary), .5);
 }
 
@@ -57,15 +57,23 @@
 	transform: translate(-50%, -50%);
 }
 
-/* Begin error message styling */
+/* Begin message styling */
 .flash {
-  background-color: #FBB0B0;
-  padding: 5px;
-  text-align: center;
+    list-style: none;
+    text-align: center;
+    background-color: rbg(var(--white));
+    padding-left: 0;
+    padding-bottom: 10px;
 }
 
-.errors {
- background-color: rbg(var(--white));
- padding-bottom: 10px;
+.message {
+    background-color: rgb(var(--tertiary));
+    width: auto;
+    padding: 5px;
 }
-/* End error message styling */
+
+.error {
+    background-color: rgb(255, 125, 125);
+    padding: 5px;
+}
+/* End message styling */
