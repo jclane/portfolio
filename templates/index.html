@@ -42,10 +42,9 @@
               <picture class="screenshot">
                 <img src={{ p["img_url"] }} >
                 <div class="overlay">
-                    <div>HTML</div>
-                    <div>CSS</div>
-                    <div>Python</div>
-                    <div>Flask</div>
+                    {% for t in p["tags"] %}
+                      <div class="tag"><span>{{ t }}</span></div>
+                    {% endfor %}
                 </div>
               </picture>
               </a>
