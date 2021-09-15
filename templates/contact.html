@@ -4,13 +4,17 @@
 <header class="header">
   <section class="contact-form center">
       <h1 class="center-text">Contact Me</h1>
-      <div class="errors">
-        {% for field in form.errors.values() %}
-          {% for error in field %}
-            <div class="flash">{{ error }}</div>
-          {% endfor %}
-        {% endfor %}
-      </div>
+      {% with flashed_messages = get_flashed_messages(with_categories=true) %}
+            {% if flashed_messages %}
+            <ul class="flash">
+              {% for category, messages in flashed_messages %}
+                {% for message in messages.values() %}
+                <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+              {% endfor %}
+            </ul>
+            {% endif %}
+      {% endwith %}
       <form name="contact" class="grid" action="{{ url_for("contact") }}" method="POST">
         {{ form.hidden_tag() }}
         {{ form.name.label }}

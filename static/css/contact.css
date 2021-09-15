@@ -1,12 +1,10 @@
 .contact-form {
-    --bg-color: white;
-
 	width: 50%;
 	max-width: 500px;
-	background-color: var(--bg-color);
+	background-color: rgb(var(--white));
 	opacity: 85%;
 	padding: 15px;
-	box-shadow: 5px 5px 22px 5px black;
+	box-shadow: 5px 5px 22px 5px rgb(var(--black));
 	border-radius: 15px;
 }
 
@@ -20,17 +18,29 @@
 	grid-template-rows: repeat(3, 1fr) 100px;
 	grid-column-gap: 10px;
 	grid-row-gap: 10px;
+	justify-items: center;
 }
 
 .contact-form .form-input {
 	width: 100%;
-	padding-left: 15px;
+	padding-left: 5px;
 	resize: none;
 }
 
-.contact-form .submit {
-	align-items: center;
-	justify-content: center;
+.contact-form #submit {
+	text-align: center;
+	grid-column: span 2;
+	padding: 10px 25px;
+	border: none;
+	border-radius: 15px;
+	background-color: rgba(var(--tertiary), .45);
+	box-shadow: inset 2px 2px 2px rgba(var(--tertiary), .75),
+	            inset -2px -2px 2px rgba(50, 50, 255, .5);
+}
+
+.contact-form #submit:active {
+	box-shadow: inset 2px 2px 2px rgba(50, 50, 255, .75),
+                inset -2px -2px 2px rgba(var(--tertiary), .5);
 }
 
 .center-text {
@@ -47,14 +57,23 @@
 	transform: translate(-50%, -50%);
 }
 
-/* Message flashing */
+/* Begin message styling */
 .flash {
-  background-color: #FBB0B0;
-  padding: 5px;
-  text-align: center;
+    list-style: none;
+    text-align: center;
+    background-color: rbg(var(--white));
+    padding-left: 0;
+    padding-bottom: 10px;
 }
 
-.errors {
- background-color: var(--bg-color);
- padding-bottom: 10px;
+.message {
+    background-color: rgb(var(--tertiary));
+    width: auto;
+    padding: 5px;
 }
+
+.error {
+    background-color: rgb(255, 125, 125);
+    padding: 5px;
+}
+/* End message styling */
