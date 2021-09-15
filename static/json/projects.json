@@ -2,7 +2,8 @@
     {
     "title":"Contact Page",
     "link_url":"./contact.html",
-    "img_url":"./img/screenshots/contact.jpg"
+    "img_url":"./img/screenshots/contact.jpg",
+    "tags":["HTML","CSS","Python", "Flask"]
     },
     {
     "title":"Example Project 1",
