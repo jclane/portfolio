@@ -182,12 +182,12 @@
 	background-color: rgba(var(--black), .60);
 }
 
-.overlay div {
-    background-color: rgba(var(--black), 1);
+.overlay .tag {
+    background-color: rgba(var(--black), .75);
     border: 1px rgba(var(--tertiary), .85) solid;
     color: rgba(var(--tertiary), .85);
 	margin: 2.5px;
-	padding: 1px;
+	padding: 1px 5px;
 	text-align: center;
 }
 
