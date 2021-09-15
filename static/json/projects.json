@@ -3,7 +3,7 @@
     "title":"Contact Page",
     "link_url":"./contact.html",
     "img_url":"./img/screenshots/contact.jpg",
-    "tags":["HTML","CSS","Python", "Flask"]
+    "tags":["HTML","CSS","Python", "Flask", "Python-WTForms", "Flask-Mail"]
     },
     {
     "title":"Example Project 1",

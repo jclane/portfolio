@@ -53,7 +53,6 @@ def contact():
           msg = format_msg(form.data)
           mail.send(msg)
           flash({"success":"Message sent!"})
-          form = ContactForm()
           return render_template("contact.html", page_nfo=page_nfo, form=form)
     elif request.method == "GET":
         return render_template('contact.html', page_nfo=page_nfo, form=form)
