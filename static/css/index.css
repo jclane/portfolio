@@ -50,6 +50,12 @@
 	flex: 0 0 33.33%;
 	padding: 5px;
 	max-width: 500px;
+	transition:0.3s;
+}
+
+.grid-list .item:hover {
+    transform: scale(1.15);
+    z-index: 12;
 }
 
 .grid-list .item a {
