@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
+:root {
+	--main: 241, 241, 241; /* light grey */
+	--secondary: 255, 255, 255; /* white */
+	--tertiary: 150, 200, 255; /* light blue */
+	--white: 255, 255, 255;
+	--gray: 235, 235, 235;
+	--black: 0, 0, 0;
+}
+
 * {
 	box-sizing: border-box;
 }
