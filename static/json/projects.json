@@ -31,8 +31,9 @@
     "img_url":"./img/screenshots/example.jpg"
     },
     {
-    "title":"Example Project 6",
-    "link_url":"#",
-    "img_url":"./img/screenshots/example.jpg"
+    "title":"My Portfolio Page",
+    "link_url":"./index.html",
+    "img_url":"./img/screenshots/portfolio.jpg",
+    "tags":["HTML","CSS","Python", "Flask"]
     }
 ]
