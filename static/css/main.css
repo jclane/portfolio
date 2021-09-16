@@ -54,6 +54,7 @@ html, body {
 .footer .inline-list {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
     gap: 10px;
     list-style: none;
     padding: 0;
@@ -63,3 +64,17 @@ html, body {
     height: 32px;
     width: 32px;
 }
+
+/**********************/
+/* begin media queries */
+/********************/
+
+@media only screen and (max-width: 250px) {
+	.footer .inline-list li:nth-child(n+3)	{
+		display: none;
+	}
+}
+
+/**********************/
+/* end media queries */
+/********************/
