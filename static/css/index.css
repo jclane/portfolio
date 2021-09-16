@@ -203,10 +203,46 @@
 	    max-width: 100%;
     }
 
+    #portfolio {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: center;
+        justify-content: center;
+        gap: 1px;
+    }
+
+    .grid-list .slide {
+        display: none;
+    }
+
 	.grid-list .item .bar .circle,
 	.close-x, .chevron	{
 		display: none;
 	}
+
+    .button {
+        color: rgb(var(--white));
+        background-color: rgb(var(--black));
+        border: none;
+        padding: 8px 16px;
+        text-align:center;
+        cursor:pointer;
+        width: 49%;
+    }
+
+    .button:hover {
+        color: rgb(var(--white));
+        background-color: rgb(var(--black));
+    }
+
+    .btn-left {
+        float: left;
+    }
+
+    .btn-right {
+        float: right;
+    }
+
 }
 
 /**********************/
