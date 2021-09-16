@@ -45,7 +45,7 @@
 }
 
 .grid-list .item:hover {
-    transform: scale(1.15);
+    transform: scale(1.05);
     z-index: 12;
 }
 
@@ -161,7 +161,7 @@
 .overlay {
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
+    align-content: center;
     justify-content: center;
 	position: absolute;
 	top: 0;
@@ -198,6 +198,11 @@
 }
 
 @media only screen and (max-width: 360px) {
+	#about, #portfolio {
+        padding: 5px 10px;
+	    max-width: 100%;
+    }
+
 	.grid-list .item .bar .circle,
 	.close-x, .chevron	{
 		display: none;
