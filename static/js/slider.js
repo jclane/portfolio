@@ -5,6 +5,7 @@ let slideIndex = 1;
 
 const handleWidth = () => {
     WIDTH  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    handleSlides();
 }
 
 const changeAllSlides = (displaySetting) => {
@@ -27,27 +28,21 @@ const changeSlide = (n) => {
 };
 
 const showSlide = (n) => {
-    if (n > SLIDES.length) {
-        slideIndex = 1;
-    }
-    if (n < 1) {
-        slideIndex = SLIDES.length;
-    }
+    if (n > SLIDES.length) slideIndex = 1;
+    if (n < 1) slideIndex = SLIDES.length;
+    changeAllSlides("none");
     SLIDES[slideIndex-1].style.display = "block";
 }
 
 const handleSlides = () => {
     if (WIDTH <= 360) {
-        console.log("width correct");
-        changeAllSlides("none");
-        changeCarouselButtons("none");
+        changeCarouselButtons("block");
         showSlide(slideIndex);
     } else {
         changeAllSlides("block");
-        changeCarouselButtons("block");
+        changeCarouselButtons("none");
     }
 }
 
 window.onresize = handleWidth;
-//handleSlides();
-changeSlide(1);
+handleSlides();
