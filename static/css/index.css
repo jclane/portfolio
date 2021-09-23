@@ -37,7 +37,6 @@
 }
 
 .grid-list .item {
-	display: block;
 	flex: 0 0 33.33%;
 	padding: 5px;
 	max-width: 500px;
@@ -203,11 +202,44 @@
 	    max-width: 100%;
     }
 
+    #portfolio {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: center;
+        justify-content: center;
+        gap: 1px;
+    }
+
 	.grid-list .item .bar .circle,
 	.close-x, .chevron	{
 		display: none;
 	}
 
+<<<<<<< HEAD
+=======
+    .button {
+        color: rgb(var(--white));
+        background-color: rgb(var(--black));
+        border: none;
+        padding: 8px 16px;
+        text-align:center;
+        cursor:pointer;
+        width: 49%;
+    }
+
+    .button:hover {
+        color: rgb(var(--white));
+        background-color: rgb(var(--black));
+    }
+
+    .btn-left {
+        float: left;
+    }
+
+    .btn-right {
+        float: right;
+    }
+>>>>>>> 888e8a2f80d256c2944d4e439ea50df1bae91fb0
 }
 
 /**********************/
