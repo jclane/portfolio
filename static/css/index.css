@@ -185,6 +185,29 @@
 	opacity: 1;
 }
 
+.button {
+    color: rgb(var(--white));
+    background-color: rgb(var(--black));
+    border: none;
+    padding: 8px 16px;
+    text-align:center;
+    cursor:pointer;
+    width: 49%;
+}
+
+.button:hover {
+    color: rgb(var(--white));
+    background-color: rgb(var(--black));
+}
+
+.btn-left {
+    float: left;
+}
+
+.btn-right {
+    float: right;
+}
+
 /************************/
 /* begin media queries */
 /**********************/
@@ -215,28 +238,6 @@
 		display: none;
 	}
 
-    .button {
-        color: rgb(var(--white));
-        background-color: rgb(var(--black));
-        border: none;
-        padding: 8px 16px;
-        text-align:center;
-        cursor:pointer;
-        width: 49%;
-    }
-
-    .button:hover {
-        color: rgb(var(--white));
-        background-color: rgb(var(--black));
-    }
-
-    .btn-left {
-        float: left;
-    }
-
-    .btn-right {
-        float: right;
-    }
 }
 
 /**********************/
