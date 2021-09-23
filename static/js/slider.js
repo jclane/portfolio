@@ -1,22 +1,53 @@
-const WIDTH  = window.innerWidth || document.documentElement.clientWidth ||
-document.body.clientWidth;
-
+const BUTTONS = document.getElementsByClassName("button");
+const SLIDES = document.getElementsByClassName("slide");
+let WIDTH  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 let slideIndex = 1;
 
+const handleWidth = () => {
+    WIDTH  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+}
+
+const changeAllSlides = (displaySetting) => {
+    console.log("changing slides");
+    for (let i = 0; i < SLIDES.length; i++) {
+        SLIDES[i].style.display = displaySetting;
+    }
+}
+
+const changeCarouselButtons = (displaySetting) => {
+    console.log("changing buttons");
+    for (let i = 0; i < BUTTONS.length; i++) {
+        BUTTONS[i].style.display = displaySetting;
+    }
+}
+
 const changeSlide = (n) => {
+    console.log("showing slide");
     showSlide(slideIndex += n);
 };
 
 const showSlide = (n) => {
-    const X = document.getElementsByClassName("slide");
-    let i;
-
-    if (n > X.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = X.length }
-    for (let i = 0; i < X.length; i++) {
-        X[i].style.display = "none";
+    if (n > SLIDES.length) {
+        slideIndex = 1;
     }
-    X[slideIndex-1].style.display = "block";
+    if (n < 1) {
+        slideIndex = SLIDES.length;
+    }
+    SLIDES[slideIndex-1].style.display = "block";
 }
 
-showSlide(slideIndex);
+const handleSlides = () => {
+    if (WIDTH <= 360) {
+        console.log("width correct");
+        changeAllSlides("none");
+        changeCarouselButtons("none");
+        showSlide(slideIndex);
+    } else {
+        changeAllSlides("block");
+        changeCarouselButtons("block");
+    }
+}
+
+window.onresize = handleWidth;
+//handleSlides();
+changeSlide(1);
