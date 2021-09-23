@@ -1,5 +1,5 @@
 const BUTTONS = document.getElementsByClassName("button");
-const SLIDES = document.getElementsByClassName("slide");
+const SLIDES = document.getElementById("portfolio").getElementsByClassName("item");
 let WIDTH  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 let slideIndex = 1;
 
