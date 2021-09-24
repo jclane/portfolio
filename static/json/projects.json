@@ -6,9 +6,10 @@
     "tags":["HTML","CSS","Python", "Flask", "Python-WTForms", "Flask-Mail"]
     },
     {
-    "title":"Example Project 1",
-    "link_url":"#",
-    "img_url":"./img/screenshots/example.jpg"
+    "title":"D3 Scatter Plot",
+    "link_url":"https://cdpn.io/jclane/debug/wvMgYBj/YvkgOwdXBXOk",
+    "img_url":"./img/screenshots/d3_scatterplot.jpg",
+    "tags":["CSS","Javascript", "D3"]
     },
     {
     "title":"Example Project 2",
