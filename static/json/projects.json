@@ -18,9 +18,10 @@
     "tags":["React", "HTML", "CSS", "Javascript"]
     },
     {
-    "title":"Example Project 3",
-    "link_url":"#",
-    "img_url":"./img/screenshots/example.jpg"
+    "title":"Simple Calculator",
+    "link_url":"https://codepen.io/jclane/full/yWPXRZ",
+    "img_url":"./img/screenshots/simple_calculator.jpg",
+    "tags":["React", "HTML", "CSS", "Javascript"]
     },
     {
     "title":"Example Project 4",
