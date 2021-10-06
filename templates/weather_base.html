@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<header id="header">What's the weather like?</header>
+
+{% block weather %}
+{% endblock %}
+
+<form name="weather-app-form" class="grid" action="{{ url_for("weather") }}" method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.zipcode.label }}
+    {{ form.zipcode() }}
+    <div id="tempPrefBtns">
+        {% for subfield in form.temp_units %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr>
+        {% endfor %}
+    </div>
+    {{ form.submit }}
+</form>
+
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="./js/weather.js"></script>
+{% endblock %}
