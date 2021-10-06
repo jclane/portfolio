@@ -21,6 +21,11 @@
 
       <link rel="stylesheet" type="text/css" href="./css/main.css">
       <link rel="stylesheet" type="text/css" href="{{ page_nfo.css }}">
+      {% if scripts %}
+        {% for script in page_nfo.scripts %}
+            <script type="text/javascript" src="{{ script }}"></script>
+        {% endfor %}
+      {% endif %}
     </body>
 
 </html>

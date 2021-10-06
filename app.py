@@ -5,7 +5,8 @@ from flask_mail import Mail
 from pathlib import Path
 
 from format_msg import format_msg
-from forms import ContactForm
+from forms import ContactForm, WeatherAppForm
+from weather import get_weather
 
 
 project_folder = os.path.expanduser("~/mysite")
@@ -56,3 +57,22 @@ def contact():
           return render_template("contact.html", page_nfo=page_nfo, form=form)
     elif request.method == "GET":
         return render_template('contact.html', page_nfo=page_nfo, form=form)
+
+@app.route("/weather.html", methods=["GET", "POST"])
+def weather():
+    page_nfo = {
+      "title": "Simple Weather App",
+      "description": "Example API based weather app created by Justin Lane",
+      "css": "./css/weather.css",
+      "scripts": [
+        "./js/jquery-3.6.0.min.js",
+        "./js/weather.js"
+      ]
+    }
+    form = WeatherAppForm()
+    if request.method == "POST":
+        units = "units=imperial&" if form.temp_units.data == "f"  else "units=metric&"
+        weather = get_weather(str(form.zipcode.data), units)
+        return render_template("weather.html", page_nfo=page_nfo, form=form, weather=weather)
+    else:
+        return render_template("weather.html", page_nfo=page_nfo, form=form)
