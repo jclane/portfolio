@@ -1,27 +1,38 @@
-{% extends "base.html" %}
+<!doctype html>
+<html lang="en">
 
+    <head>
+      <meta charset="utf-8">
+      <title>Justin Lane's Portfolio - {{ page_nfo.title }}</title>
+      <meta name="description" content="{{ page_nfo.description }}">
+      <meta name="author" content="Justin Lane">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+    </head>
 
-{% block content %}
-<header id="header">What's the weather like?</header>
+    <header id="header">What's the weather like?</header>
 
-{% block weather %}
-{% endblock %}
+    <div class="container">
+        {% block weather %}
+        {% endblock %}
 
-<form name="weather-app-form" class="grid" action="{{ url_for("weather") }}" method="POST">
-    {{ form.hidden_tag() }}
-    {{ form.zipcode.label }}
-    {{ form.zipcode() }}
-    <div id="tempPrefBtns">
-        {% for subfield in form.temp_units %}
-        <tr>
-            <td>{{ subfield }}</td>
-            <td>{{ subfield.label }}</td>
-        </tr>
-        {% endfor %}
+        <form name="weather-app-form" action="{{ url_for("weather") }}" method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.zipcode.label }}
+            {{ form.zipcode() }}
+            <div id="tempPrefBtns">
+                {% for subfield in form.temp_units %}
+                <tr>
+                    <td>{{ subfield }}</td>
+                    <td>{{ subfield.label }}</td>
+                </tr>
+                {% endfor %}
+            </div>
+            {{ form.submit }}
+        </form>
     </div>
-    {{ form.submit }}
-</form>
 
-<script src="./js/jquery-3.6.0.min.js"></script>
-<script src="./js/weather.js"></script>
-{% endblock %}
+    <link rel="stylesheet" type="text/css" href="./css/weather.css">
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/weather.js"></script>

@@ -62,12 +62,7 @@ def contact():
 def weather():
     page_nfo = {
       "title": "Simple Weather App",
-      "description": "Example API based weather app created by Justin Lane",
-      "css": "./css/weather.css",
-      "scripts": [
-        "./js/jquery-3.6.0.min.js",
-        "./js/weather.js"
-      ]
+      "description": "Example API based weather app created by Justin Lane"
     }
     form = WeatherAppForm()
     if request.method == "POST":
