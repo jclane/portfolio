@@ -1,6 +1,5 @@
 $(document).ready(function() {
-  //conditions = document.getElementById("conditions").innerText;
-  conditions = "Snow";
+  conditions = document.getElementById("conditions").innerText;
   tempText = document.getElementById("curr_temp").innerText;
   convertedTemp = Math.round(tempText.slice(0, -2));
 
