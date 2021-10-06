@@ -17,7 +17,8 @@ def get_weather(zipcode, units):
           "real_feel": rjson["main"]["feels_like"],
           "temp_min": rjson["main"]["temp_min"],
           "temp_max": rjson["main"]["temp_max"],
-          "humidity": rjson["main"]["humidity"]
+          "humidity": rjson["main"]["humidity"],
+          "location": rjson["name"]
         }
 
         return weather

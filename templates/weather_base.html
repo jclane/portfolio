@@ -11,13 +11,13 @@
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
     </head>
 
-    <header id="header">What's the weather like?</header>
+    <header id="header">What's the weather like in {{ weather.location if weather else "..." }}?</header>
 
     <div class="container">
         {% block weather %}
         {% endblock %}
 
-        <form name="weather-app-form" action="{{ url_for("weather") }}" method="POST">
+        <form id="weather-app-form" name="weather-app-form" action="{{ url_for("weather") }}" method="POST">
             {{ form.hidden_tag() }}
             {{ form.zipcode.label }}
             {{ form.zipcode() }}

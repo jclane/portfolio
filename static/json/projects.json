@@ -26,7 +26,8 @@
     {
     "title":"Weather App",
     "link_url":"./weather.html",
-    "img_url":"./img/screenshots/weather_app.jpg"
+    "img_url":"./img/screenshots/weather_app.jpg",
+    "tags":["Requests", "Beautiful-Soup", "HTML", "CSS", "Javascript", "jQuery", "OpenWeatherMap API"]
     },
     {
     "title":"Example Project 5",
