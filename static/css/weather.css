@@ -1,31 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
 
-html {
-  height: 100%;
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  overflow: hidden;
 }
 
-body {
-  float: none;
-  overflow: hidden;
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 }
 
 #header {
   font-family: "Homemade Apple", cursive;
   font-size: 4em;
+  padding-bottom: 10px;
 }
 
-.container {
+#weather, #weather-app-form {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+#weather-app-form {
+  grid-template-areas: "z s"
+                       "tu tu";
+}
+
+#weather-app-form > #zipcode, #submit {
+  border-style: solid;
+  border-color: black;
+}
+
+#weather-app-form > #zipcode {
+  grid-area: z;
+  border-radius: 15px 0px 0px 15px;
+  border-width: 1px 0 1px 1px;
+  background-color: inherit;
+}
+
+#weather-app-form > #submit {
+  grid-area: s;
+  border-radius: 0px 15px 15px 0px;
+  border-width: 1px 1px 1px 0px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#weather-app-form > #temp_units_radios {
+  grid-area: tu;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#weather {
+  grid-template-areas: "c t"
+                       "f f";
+}
+
+#curr_conditions {
+  grid-area: c;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
   align-items: center;
-  height: 75%;
-  width: 75%;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-size: 1.25em;
+}
+
+#temps {
+  grid-area: t;
+  display: grid;
+  justify-items: center;
+  grid-template-areas: "ct ct"
+                       "ht lt";
+}
+
+#curr_conditions > img {
+  grid-area: i;
+}
+
+#curr_conditions #conditions {
+  grid-area: c;
+}
+
+#temps #curr_temp {
+  grid-area: ct;
+  font-size: 2.5em;
+}
+
+#temps #temp_max {
+  grid-area: ht;
+  display: flex;
+}
+
+#temps #temp_min {
+  grid-area: lt;
 }
 
 .snow {
