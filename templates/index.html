@@ -1,88 +1,74 @@
-<!doctype html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="utf-8">
-  <title>Justin Lane's Portfolio - Welcome</title>
-  <meta name="description" content="Portfolio of Justin Lane">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
-</head>
+{% block content %}
+<header class="header">
+  <section id="intro">
+    <h1>Justin Lane</h1>
+    <h2>Software Developer</h2>
+  </section>
+</header>
 
-<body>
+<section id="about">
+  <h1>About Me</h1>
+  <p>Hello, my name is Justin Lane and I am a software developer from Louisville, KY.</p>
+  <p>I discovered a love a coding while completing my Bachelor's degree. As a child I had enjoyed creating mods for the video games I was playing, but was always more pleased with the end result.  Now, I find I enjoy the entire process.  The planning, designing, testing, and of course the actual coding.  It's a challenge and keeps me from getting bored.</p>
+</section>
 
-  <div class="container">
-    <header class="header">
-      <section id="intro">
-        <h1>Justin Lane</h1>
-        <h2>Software Developer</h2>
-      </section>
-    </header>
-
-    <section id="about">
-      <h1>About Me</h1>
-      <p>Hello, my name is Justin Lane and I am a software developer from Louisville, KY.</p>
-      <p>I discovered a love a coding while completing my Bachelor's degree. As a child I had enjoyed creating mods for the video games I was playing, but was always more pleased with the end result.  Now, I find I enjoy the entire process.  The planning, designing, testing, and of course the actual coding.  It's a challenge and keeps me from getting bored.</p>
-    </section>
-
-    <section id="portfolio">
-      <h1>My Portfolio</h1>
-      <ul class="grid-list">
-          {% for p in projects %}
-            <li class="item">
-              <a href={{ p["link_url"] }}>
-              <div class="bar">
-              <h2>{{ p["title"] }}</h2>
-                <div class="circle"></div>
-                <div class="chevron"></div>
-                <div class="chevron"></div>
-                <div class="close-x"></div>
-              </div>
-              <picture class="screenshot">
-                <img src={{ p["img_url"] }} >
-                <div class="overlay">
-                    {% for t in p["tags"] %}
-                      <div class="tag"><span>{{ t }}</span></div>
-                    {% endfor %}
-                </div>
-              </picture>
-              </a>
-            </li>
-          {% endfor %}
-      </ul>
-      <input type="button" class="button btn-left" onclick="changeSlide(-1)" value=&#10094>
-      <input type="button" class="button btn-right" onclick="changeSlide(+1)" value=&#10095>
-    </section>
-
-    <footer class="footer center">
-      <ul class="inline-list">
-        <li class="profile-link">
-          <a href="https://www.linkedin.com/in/justinclaylane"><img class="logo" src="./img/logos/linkedin_logo.svg" alt="LinkedIn logo" /></a>
+<section id="portfolio">
+  <h1>My Portfolio</h1>
+  <ul class="grid-list">
+      {% for p in projects %}
+        <li class="item">
+          <a href={{ p["link_url"] }}>
+          <div class="bar">
+          <h2>{{ p["title"] }}</h2>
+            <div class="circle"></div>
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <div class="close-x"></div>
+          </div>
+          <picture class="screenshot">
+            <img src={{ p["img_url"] }} >
+            <div class="overlay">
+                {% for t in p["tags"] %}
+                  <div class="tag"><span>{{ t }}</span></div>
+                {% endfor %}
+            </div>
+          </picture>
+          </a>
         </li>
-        <li class="profile-link">
-          <a href="https://github.com/jclane"><img class="logo" src="./img/logos/github_logo.svg" alt="GitHub logo" /></a>
-        </li>
-        <li class="profile-link">
-                  <a href="https://www.twitter.com/justin_lane"><img class="logo" src="./img/logos/twitter_logo.svg" alt="Twitter logo" /></a>
-        </li>
-        <li class="profile-link">
-                <a href="https://mastodon.online/@jc"><img class="logo" src="./img/logos/mastodon_logo.svg" alt="Mastodon logo" /></a>
-        </li>
-        <li class="profile-link">
-            <a href="https://www.facebook.com/justin.clay.lane"><img class="logo" src="./img/logos/facebook_logo.svg" alt="Facebook logo" /></a>
-        </li>
-        <li class="profile-link">
-            <a href="https://www.instagram.com/j.c.lane/"><img class="logo" src="./img/logos/instagram_logo.svg" alt="Instagram logo" /></a>
-        </li>
-      </ul>
-      <span class="copyright">Copyright &copy; Justin Lane 2021</span>
-    </footer>
+      {% endfor %}
+  </ul>
+  <input type="button" class="button btn-left" onclick="changeSlide(-1)" value=&#10094>
+  <input type="button" class="button btn-right" onclick="changeSlide(+1)" value=&#10095>
+</section>
 
-  </div>
-  <link rel="stylesheet" type="text/css" href="./css/main.css">
-  <link rel="stylesheet" type="text/css" href="./css/index.css">
-  <script type="text/javascript" src="./js/slider.js"></script>
-</body>
+<footer class="footer center">
+  <ul class="inline-list">
+    <li class="profile-link">
+      <a href="https://www.linkedin.com/in/justinclaylane"><img class="logo" src="./img/logos/linkedin_logo.svg" alt="LinkedIn logo" /></a>
+    </li>
+    <li class="profile-link">
+      <a href="https://github.com/jclane"><img class="logo" src="./img/logos/github_logo.svg" alt="GitHub logo" /></a>
+    </li>
+    <li class="profile-link">
+              <a href="https://www.twitter.com/justin_lane"><img class="logo" src="./img/logos/twitter_logo.svg" alt="Twitter logo" /></a>
+    </li>
+    <li class="profile-link">
+            <a href="https://mastodon.online/@jc"><img class="logo" src="./img/logos/mastodon_logo.svg" alt="Mastodon logo" /></a>
+    </li>
+    <li class="profile-link">
+        <a href="https://www.facebook.com/justin.clay.lane"><img class="logo" src="./img/logos/facebook_logo.svg" alt="Facebook logo" /></a>
+    </li>
+    <li class="profile-link">
+        <a href="https://www.instagram.com/j.c.lane/"><img class="logo" src="./img/logos/instagram_logo.svg" alt="Instagram logo" /></a>
+    </li>
+  </ul>
+  <span class="copyright">Copyright &copy; Justin Lane 2021</span>
+</footer>
 
-</html>
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+<link rel="stylesheet" type="text/css" href="./css/index.css">
+<script type="text/javascript" src="./js/slider.js"></script>
+
+{% endblock %}
