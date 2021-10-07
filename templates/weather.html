@@ -2,20 +2,20 @@
 
 {% block weather %}
 
-<div id="weather">
-<!-- The current weather will go here. -->
     {% if weather %}
-        <img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png"><br>
-        <div id="temps">
-            <span id="curr_temp">{{ weather.curr_temp }}&deg;</span>
-            <span id="temp_max">{{ weather.temp_max }}&deg;</span>
-            <span id="temp_min">{{ weather.temp_min }}&deg;</span>
-        </div>
-        <div id="curr_conditions">
-            <span id="conditions">{{ weather.conditions }}</span>
+        <div id="weather">
+            <div id="curr_conditions">
+                <img id="icon" src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">
+                <span id="conditions">{{ weather.conditions }}</span>
+                <input type="hidden" id="hidden_field" value={{ weather.description }} />
+            </div>
+            <div id="temps">
+                <span id="curr_temp">{{ weather.curr_temp }}&deg;</span>
+                <span id="temp_max">hi: {{ weather.temp_max }}&deg;</span>
+                <span id="temp_min">lo: {{ weather.temp_min }}&deg;</span>
+            </div>
         </div>
     {% endif %}
-</div>
 
 {% endblock %}
 

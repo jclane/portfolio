@@ -12,11 +12,12 @@ def get_weather(zipcode, units):
         rjson = response.json()
         weather = {
           "conditions": rjson["weather"][0]["main"],
+          "description": rjson["weather"][0]["description"],
           "icon": rjson["weather"][0]["icon"],
-          "curr_temp": rjson["main"]["temp"],
-          "real_feel": rjson["main"]["feels_like"],
-          "temp_min": rjson["main"]["temp_min"],
-          "temp_max": rjson["main"]["temp_max"],
+          "curr_temp": round(rjson["main"]["temp"]),
+          "real_feel": round(rjson["main"]["feels_like"]),
+          "temp_min": round(rjson["main"]["temp_min"]),
+          "temp_max": round(rjson["main"]["temp_max"]),
           "humidity": rjson["main"]["humidity"],
           "location": rjson["name"]
         }

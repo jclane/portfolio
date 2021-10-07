@@ -11,23 +11,21 @@
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
     </head>
 
-    <header id="header">What's the weather like in {{ weather.location if weather else "..." }}?</header>
-
     <div class="container">
+        <header id="header">What's the weather like in {{ weather.location if weather else "..." }}?</header>
         {% block weather %}
         {% endblock %}
 
         <form id="weather-app-form" name="weather-app-form" action="{{ url_for("weather") }}" method="POST">
             {{ form.hidden_tag() }}
-            {{ form.zipcode.label }}
-            {{ form.zipcode() }}
-            <div id="tempPrefBtns">
-                {% for subfield in form.temp_units %}
-                <tr>
-                    <td>{{ subfield }}</td>
-                    <td>{{ subfield.label }}</td>
-                </tr>
-                {% endfor %}
+            {{ form.zipcode(placeholder="Enter zipcode...") }}
+            <div id="temp_units_radios">
+            {% for subfield in form.temp_units %}
+                <div id={{ "control_group_" + subfield.id[-1:] }} >
+                    {{ subfield }}
+                    {{ subfield.label }}
+                </div>
+            {% endfor %}
             </div>
             {{ form.submit }}
         </form>

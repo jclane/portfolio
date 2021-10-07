@@ -1,9 +1,25 @@
 $(document).ready(() => {
 
+  const getIntensity = () => {
+    const description = $("#hidden_field").text();
+
+    let intensity = 25;
+    switch (true) {
+      case description.includes("heavy"):
+        intensity = 859;
+        break;
+      case description.includes("light"):
+        intensity = 100;
+        break;
+    }
+
+    return intensity;
+  }
+
   // function to generate raindrops
   const createRain = () => {
     // number of drops created.
-    const nbDrop = 100;
+    const nbDrop = getIntensity();
 
     // function to generate a random number range.
     const randRange = (minNum, maxNum) => {
@@ -33,31 +49,42 @@ $(document).ready(() => {
 
   const setWeatherEffect = () => {
     // This will add weather effects;
-    const conditions = document.getElementById("conditions").innerText;
+    const conditions = $("#conditions").text().toLowerCase();
+
+    /*
+    for word in conditions {
+        if word in ["snow", "wind", "rain", "clouds"] {
+            $("body").addClass(word);
+            // then how to call function?
+        }
+    }
+    */
 
     switch (true) {
-      case conditions === "Snow":
+      case conditions === "snow":
         // Snow effect is handled in 'weather.css'.
         $("body").addClass("snow");
         break;
-      case conditions === "Wind":
+      case conditions === "wind":
         // I need to add a 'wind' effect. Perhaps CCS/SVG leaves going back or
         // maybe could be funny and throw in the odd kitchen sink or cow.
         break;
-      case conditions === "Rain":
+      case conditions === "rain":
         $("body").addClass("rain");
         createRain();
         break;
-      case conditions === "Clouds":
+      case conditions === "clouds":
         $("body").addClass("clouds");
         createClouds();
+        break;
     }
+
   }
 
   function setBackgroundColor() {
     // This will change the background depending on the conditions
     const tempText = $("span#curr_temp").text();
-    const currTemp = Math.round(tempText.slice(0, -2));
+    const currTemp = Math.round(tempText.slice(0, -1));
     const tempUnits = $("input[name=temp_units]:checked",
                         "#weather-app-form").val();
     const convertedTemp = (tempUnits === "c") ? (currTemp * 9/5) + 32 : currTemp;
@@ -78,6 +105,7 @@ $(document).ready(() => {
       case convertedTemp >= 76: // HOT
         $("body").css({ background: "hsl(15, 100%, 56%)" });
         $("body").css({ color: "hsl(15, 30%, 25%)" });
+        break;
     }
 
   }
