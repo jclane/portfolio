@@ -12,7 +12,7 @@
     </head>
 
     <div class="container">
-        <header id="header">What's the weather like in {{ weather.location if weather else "..." }}?</header>
+        <header class="header">What's the weather like in {{ weather.location if weather else "..." }}?</header>
         {% block weather %}
         {% endblock %}
 
@@ -32,5 +32,6 @@
     </div>
 
     <link rel="stylesheet" type="text/css" href="./css/weather.css">
+    <link rel="stylesheet" type="text/css" href="./css/weather_effects.css">
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./js/weather.js"></script>
