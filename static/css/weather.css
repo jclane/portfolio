@@ -19,6 +19,8 @@ body {
   padding-bottom: 10px;
 }
 
+
+/* Begin color and styling of weather results and form */
 #weather, #weather-app-form {
   display: grid;
   align-items: center;
@@ -30,12 +32,6 @@ body {
   margin-top: 10px;
 }
 
-#weather-app-form {
-  grid-area: waf;
-  grid-template-areas: "wafz wafs"
-                       "waftur waftur";
-}
-
 #weather-app-form > #zipcode,
 #weather-app-form > #submit {
   border-style: solid;
@@ -43,17 +39,31 @@ body {
 }
 
 #weather-app-form > #zipcode {
-  grid-area: wafz;
   border-radius: 15px 0px 0px 15px;
   border-width: 1px 0 1px 1px;
   background-color: inherit;
 }
 
 #weather-app-form > #submit {
-  grid-area: wafs;
   border-radius: 0px 15px 15px 0px;
   border-width: 1px 1px 1px 0px;
   background-color: rgba(0, 0, 0, 0.1);
+}
+/* End color and styling of weather results and form */
+
+/* Begin default layout (grid for large screens) */
+#weather-app-form {
+  grid-area: waf;
+  grid-template-areas: "wafz wafs"
+                       "waftur waftur";
+}
+
+#weather-app-form > #zipcode {
+  grid-area: wafz;
+}
+
+#weather-app-form > #submit {
+  grid-area: wafs;
 }
 
 #weather-app-form > #temp_units_radios {
@@ -103,6 +113,7 @@ body {
 #weather > #temps > #temp_min {
   grid-area: wtmin;
 }
+/* End default layout (grid for large screens) */
 
 /* Begin media queries */
 @media only screen and (max-width: 767px) {
