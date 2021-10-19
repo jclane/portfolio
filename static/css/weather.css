@@ -144,11 +144,10 @@ body {
 
     .container {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 25%;
         display: grid;
         column-gap: 2em;
+        padding: 1em;
         grid-template-rows: 1fr min-content;
         align-items: stretch;
         grid-template-areas: "h w"
