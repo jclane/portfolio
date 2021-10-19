@@ -79,6 +79,7 @@ body {
 }
 
 #weather {
+    grid-area: w;
     grid-template-areas: "wcc"
                          "wt";
 }
@@ -129,7 +130,8 @@ body {
 /* Begin media queries */
 @media only screen and (max-width: 767px) {
     .container {
-        display: block;
+        column-gap: 0;
+        left: 0;
     }
 
     .header {
@@ -137,17 +139,7 @@ body {
     }
 
     #weather {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    #weather-app-form {
-        position: absolute;
-        bottom: 25%;
-        left: 50%;
-        transform: translate(-50%);
+        grid-template-areas: "wcc wt";
     }
 }
 
