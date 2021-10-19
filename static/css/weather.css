@@ -7,9 +7,15 @@ body {
 }
 
 .container {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
+    position: absolute;
+    top: 25%;
+    display: grid;
+    column-gap: 2em;
+    padding: 1em;
+    grid-template-rows: 1fr min-content;
+    align-items: stretch;
+    grid-template-areas: "h w"
+                         "h waf"
 }
 
 .header {
@@ -51,7 +57,7 @@ body {
 }
 /* End color and styling of weather results and form */
 
-/* Begin default layout (grid for large screens) */
+/* Begin default layout (styled with large screens in mind) */
 #weather-app-form {
   grid-area: waf;
   grid-template-areas: "wafz wafs"
@@ -73,8 +79,8 @@ body {
 }
 
 #weather {
-  grid-template-areas: "wcc wt"
-                       "waf waf";
+    grid-template-areas: "wcc"
+                         "wt";
 }
 
 #weather > #curr_conditions {
@@ -103,7 +109,12 @@ body {
 
 #weather > #temps > #curr_temp {
   grid-area: wtct;
-  font-size: 2.5em;
+  font-size: 6em;
+}
+
+#weather > #temps > #temp_max,
+#weather > #temps > #temp_min {
+  font-size: 1.5em;
 }
 
 #weather > #temps > #temp_max {
@@ -113,7 +124,7 @@ body {
 #weather > #temps > #temp_min {
   grid-area: wtmin;
 }
-/* End default layout (grid for large screens) */
+/* End default layout (styled with large screens in mind) */
 
 /* Begin media queries */
 @media only screen and (max-width: 767px) {
@@ -134,9 +145,17 @@ body {
 
     #weather-app-form {
         position: absolute;
-        bottom: 0;
+        bottom: 25%;
+        left: 50%;
+        transform: translate(-50%);
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 2560px) {
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
