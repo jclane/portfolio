@@ -141,4 +141,35 @@ body {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: grid;
+        column-gap: 2em;
+        grid-template-rows: 1fr min-content;
+        align-items: stretch;
+        grid-template-areas: "h w"
+                             "h waf"
+    }
+
+    #weather, #weather-app-form {
+        align-content: center;
+    }
+
+    #weather {
+        grid-template-areas: "wcc"
+                             "wt";
+    }
+
+    #weather > #temps > #curr_temp {
+        font-size: 6em;
+    }
+
+    #weather > #temps > #temp_max,
+    #weather > #temps > #temp_min {
+        font-size: 1.5em;
+    }
 }
