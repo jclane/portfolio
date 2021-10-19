@@ -51,7 +51,7 @@ body {
 }
 /* End color and styling of weather results and form */
 
-/* Begin default layout (grid for large screens) */
+/* Begin default layout (styled with large screens in mind) */
 #weather-app-form {
   grid-area: waf;
   grid-template-areas: "wafz wafs"
@@ -113,7 +113,7 @@ body {
 #weather > #temps > #temp_min {
   grid-area: wtmin;
 }
-/* End default layout (grid for large screens) */
+/* End default layout (styled with large screens in mind) */
 
 /* Begin media queries */
 @media only screen and (max-width: 767px) {
@@ -134,7 +134,9 @@ body {
 
     #weather-app-form {
         position: absolute;
-        bottom: 0;
+        bottom: 25%;
+        left: 50%;
+        transform: translate(-50%);
     }
 }
 
