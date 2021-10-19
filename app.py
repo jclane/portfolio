@@ -25,7 +25,6 @@ app.secret_key = os.environ.get("APP_SECRET_KEY")
 mail = Mail(app)
 
 @app.route("/", methods=["GET"])
-@app.route("/index.html", methods=["GET"])
 def index():
     page_nfo = {
       "title": "Welcome",
@@ -38,7 +37,7 @@ def index():
 
     return render_template("index.html", page_nfo=page_nfo, projects=projects)
 
-@app.route("/contact.html", methods=["GET", "POST"])
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
     page_nfo = {
       "title": "Contact Form",
@@ -58,7 +57,7 @@ def contact():
     elif request.method == "GET":
         return render_template('contact.html', page_nfo=page_nfo, form=form)
 
-@app.route("/weather.html", methods=["GET", "POST"])
+@app.route("/weather", methods=["GET", "POST"])
 def weather():
     page_nfo = {
       "title": "Simple Weather App",

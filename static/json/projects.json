@@ -1,7 +1,7 @@
 [
     {
     "title":"Contact Page",
-    "link_url":"./contact.html",
+    "link_url":"./contact",
     "img_url":"./img/screenshots/contact.jpg",
     "tags":["HTML","CSS","Python", "Flask", "Python-WTForms", "Flask-Mail"]
     },
@@ -25,7 +25,7 @@
     },
     {
     "title":"Weather App",
-    "link_url":"./weather.html",
+    "link_url":"./weather",
     "img_url":"./img/screenshots/weather_app.jpg",
     "tags":["Requests", "Beautiful-Soup", "HTML", "CSS", "Javascript", "jQuery", "OpenWeatherMap API"]
     },
@@ -36,7 +36,7 @@
     },
     {
     "title":"My Portfolio Page",
-    "link_url":"./index.html",
+    "link_url":"./",
     "img_url":"./img/screenshots/portfolio.jpg",
     "tags":["HTML","CSS","Python", "Flask"]
     }
