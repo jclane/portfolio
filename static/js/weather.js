@@ -1,19 +1,8 @@
 $(document).ready(() => {
 
   const getIntensity = () => {
-    const description = $("#hidden_field").text();
-
-    let intensity = 25;
-    switch (true) {
-      case description.includes("heavy"):
-        intensity = 859;
-        break;
-      case description.includes("light"):
-        intensity = 100;
-        break;
-    }
-
-    return intensity;
+    const id = $("#hidden_field").val();
+    return id;
   }
 
   // function to generate raindrops
