@@ -2,7 +2,7 @@ $(document).ready(() => {
   const HEIGHT = $(window).height();
   const WIDTH = $(window).width();
   
-  const getIntensity = () => {
+  const getConditionsId = () => {
     const id = $("#hidden_field").val();
     return id;
   }
