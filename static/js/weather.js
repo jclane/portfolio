@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
-  const getConditionsId = () => {
-    const id = $("#hidden_field").text();
+  const getIntensity = () => {
+    const id = $("#hidden_field").val();
     return id;
   }
 

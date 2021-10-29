@@ -9,8 +9,8 @@ from forms import ContactForm, WeatherAppForm
 from weather import get_weather
 
 
-project_folder = os.path.expanduser("~/mysite")
-load_dotenv(os.path.join(project_folder, ".env"))
+configs_folder = os.path.expanduser("~/configs")
+load_dotenv(os.path.join(configs_folder, ".env"))
 
 app = Flask(__name__)
 app.app_context()
@@ -29,9 +29,9 @@ def index():
     page_nfo = {
       "title": "Welcome",
       "description": "Portfolio of Justin Lane",
-      "css": "./css/index.css"
+      "css": "./static/css/index.css"
     }
-    path = Path("/home/jclane/mysite/static/json/projects.json")
+    path = Path("./static/json/projects.json")
     with open(path, "r") as f:
         projects = json.load(f)
 
@@ -42,7 +42,7 @@ def contact():
     page_nfo = {
       "title": "Contact Form",
       "description": "Example contact form created by Justin Lane",
-      "css": "./css/contact.css"
+      "css": "./static/css/contact.css"
     }
     form = ContactForm()
     if request.method == "POST":
@@ -70,3 +70,4 @@ def weather():
         return render_template("weather.html", page_nfo=page_nfo, form=form, weather=weather)
     else:
         return render_template("weather.html", page_nfo=page_nfo, form=form)
+
