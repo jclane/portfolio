@@ -32,7 +32,7 @@ const showSlide = (n) => {
 }
 
 const handleSlides = () => {
-    if (WIDTH <= 360) {
+    if (WIDTH <= 414) {
         changeCarouselButtons("block");
         showSlide(slideIndex);
     } else {
