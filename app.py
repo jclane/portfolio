@@ -29,7 +29,8 @@ def index():
     page_nfo = {
       "title": "Welcome",
       "description": "Portfolio of Justin Lane",
-      "css": "./static/css/index.css"
+      "css": "./static/css/index.css",
+      "scripts": ["./static/css/contact.css"]
     }
     path = Path("./static/json/projects.json")
     with open(path, "r") as f:
