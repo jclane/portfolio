@@ -12,5 +12,5 @@ class ContactForm(FlaskForm):
 
 class WeatherAppForm(FlaskForm):
     zipcode = IntegerField("Zipcode", [InputRequired("Please enter a zipcode.")])
-    temp_units = RadioField("What?", choices=[("c", "Celsius"), ("f", "Fahrenheit")])
+    temp_units = RadioField("What?", choices=[("c", "Celsius"), ("f", "Fahrenheit")], default="f")
     submit = SubmitField("Get Weather")
