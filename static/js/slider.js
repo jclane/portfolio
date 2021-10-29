@@ -9,7 +9,6 @@ const handleWidth = () => {
 }
 
 const changeAllSlides = (displaySetting) => {
-    console.log("changing slides");
     for (let i = 0; i < SLIDES.length; i++) {
         SLIDES[i].style.display = displaySetting;
     }
