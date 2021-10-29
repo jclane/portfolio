@@ -30,7 +30,7 @@ def index():
       "title": "Welcome",
       "description": "Portfolio of Justin Lane",
       "css": "./static/css/index.css",
-      "scripts": ["./static/slider.js"]
+      "scripts": ["./static/js/slider.js"]
     }
     path = Path("./static/json/projects.json")
     with open(path, "r") as f:
