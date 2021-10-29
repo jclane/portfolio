@@ -15,14 +15,12 @@ const changeAllSlides = (displaySetting) => {
 }
 
 const changeCarouselButtons = (displaySetting) => {
-    console.log("changing buttons");
     for (let i = 0; i < BUTTONS.length; i++) {
         BUTTONS[i].style.display = displaySetting;
     }
 }
 
 const changeSlide = (n) => {
-    console.log("showing slide");
     showSlide(slideIndex += n);
 };
 
