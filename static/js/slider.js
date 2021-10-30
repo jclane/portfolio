@@ -32,7 +32,6 @@ const showSlide = (n) => {
 }
 
 const handleSlides = () => {
-  console.log(WIDTH);
     if (WIDTH <= 414) {
         changeCarouselButtons("block");
         showSlide(slideIndex);
