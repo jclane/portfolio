@@ -193,10 +193,6 @@ $(document).ready(() => {
     }
   }
  
-  /**
-   * Calls createRain to create a number of drops based on the [conditions_id]
-   * and then calls [drawRain] to add them to the page.
-   */
   const handleRain = (conditions_id) => {
     let drops;
     switch (conditions_id) {
@@ -217,10 +213,6 @@ $(document).ready(() => {
     addObjsToPage("rain", arr);
   }
 
-  /**
-   * Calls createClouds to create a number of clouds based on the [conditions_id]
-   * and then calls [addObjsToPage] to add them to the page.
-   */
   const handleClouds = (conditions_id) => {
     let clouds;
     switch (conditions_id) {
@@ -343,11 +335,11 @@ $(document).ready(() => {
     const id = $("#hidden_field").val();
     return id;
   }
-  
+
+  // This will add weather effects;  
   const setWeatherEffects = () => {
-    // This will add weather effects;
     let conditions_id = getConditionsId();
-    conditions_id = "802"; // TODO: delete later
+    conditions_id = "200"; // TODO: delete later
     switch (true) {
       case (inRange(conditions_id, 200, 232)):
           handleStorm(conditions_id);
@@ -363,9 +355,9 @@ $(document).ready(() => {
           break;     
     }
   }
-
+  
+  // This will change the background depending on the conditions
   const setBackgroundColor = () => {
-    // This will change the background depending on the conditions
     const tempText = $("span#curr_temp").text();
     const currTemp = Math.round(tempText.slice(0, -1));
     const tempUnits = $("input[name=temp_units]:checked",
