@@ -162,3 +162,13 @@
 	100% {margin-left: -1000px;}
 }
 /* End styling for CLOUDS */
+
+/* Begin styling for TSTORM */
+#tstorm-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+/* End styling for TSTORM */
