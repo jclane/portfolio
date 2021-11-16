@@ -309,7 +309,7 @@ $(document).ready(() => {
     requestAnimationFrame(animate);
     setInterval(() => {
       createLightning(context);
-    }, 7000)  
+    }, intensity)  
   }
 
   const handleStorm = (conditions_id) => {
@@ -347,7 +347,6 @@ $(document).ready(() => {
   const setWeatherEffects = () => {
     // This will add weather effects;
     let conditions_id = getConditionsId();
-    conditions_id = "802"; // TODO: delete later
     switch (true) {
       case (inRange(conditions_id, 200, 232)):
           handleStorm(conditions_id);
