@@ -2,6 +2,26 @@ $(document).ready(() => {
   const HEIGHT = $(window).height();
   const WIDTH = $(window).width();
   
+  class Cloud {
+    constructor(id, coords, sizeAndOpacity, speed) {
+      this.id = id;
+      this.coords = coords;
+      this.sizeAndOpacity = sizeAndOpacity;
+      this.speed = speed;
+    }
+    
+    getHTML() {
+      return `<div class=cloud id=${this.id}
+          style="left:${this.coords.x};
+          top:${this.coords.y};
+          transform: scale(${this.sizeAndOpacity});
+          opacity:scale(${this.sizeAndOpacity});
+          -webkit-animation:moveclouds ${this.speed}s linear infinite;
+          -moz-animation:moveclouds ${this.speed}s linear infinite;
+          -o-animation:moveclouds ${this.speed}s linear infinite"></div>`;
+    }
+  }  
+  
   const getConditionsId = () => {
     const id = $("#hidden_field").val();
     return id;
@@ -83,44 +103,49 @@ $(document).ready(() => {
         createSnow(250);      
     }
   }
-  
-  const createClouds = (intensity) => {
-    let clouds = $("<div>", {"class": "clouds"});
-    $("body").prepend(clouds);
     
+  const createClouds = (intensity) => {
+    let cloudArr = [];
     for (let i = 1; i < intensity; i++) {
-      const cloudLeft = randRange(-250, WIDTH);
-      const cloudTop = randRange(-250, 0);
-      const cloudScaleAndOpacity = randRange(0, 200) / 100;
+      const id = "cloud" + i;
+      const randX = randRange(-250, WIDTH);
+      const randY = randRange(-250, 0);
+      const sizeAndOpacity = randRange(0, 200) / 100;
       const speed = randRange(15, 25);
-      $(".clouds").append('<div class="cloud" id="cloud' + i + '"></div>');
-      $("#cloud" + i).css("left", cloudLeft);
-      $("#cloud" + i).css("top", cloudTop);
-      $("#cloud" + i).css("transform", "scale( " + cloudScaleAndOpacity + ")");
-      $("#cloud" + i).css("opacity", "scale( " + cloudScaleAndOpacity + ")");
-      $("#cloud" + i).css("-webkit-animation", "moveclouds " + speed + "s linear infinite");
-      $("#cloud" + i).css("-moz-animation", "moveclouds " + speed + "s linear infinite");
-      $("#cloud" + i).css("-o-animation", "moveclouds " + speed + "s linear infinite");
+      const cloud = new Cloud(id, {x:randX, y:randY}, 
+                              sizeAndOpacity, speed); 
+      cloudArr.push(cloud);
     }
+
+    return cloudArr;
   }
 
+  const drawClouds = (clouds) => {
+    const container = $("<div>", {"class": "clouds"});
+    $("body").prepend(container);
+
+    for (i in clouds) {
+      const c = clouds[i];
+      container.append(c.getHTML());
+    }
+  }  
+  
   const handleClouds = (conditions_id) => {
     switch (conditions_id) {
       case 802:  // scattered
-        createClouds(8);
+        drawClouds(createClouds(8));
         break;
       case 803:  // broken
-        createClouds(16);
+        drawClouds(createClouds(16));
         break;
       case 804:  // overcast
-        createClouds(160);
+        drawClouds(createClouds((160));
         break;
       case 801:
       default:  // few/unknown
-        createClouds(5);
+        drawClouds(createClouds(5));
     }
   }
-
 
   const inRange = (num, min, max) => {
     return num >= min && num <= max;
