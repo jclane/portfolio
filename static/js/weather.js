@@ -1,7 +1,27 @@
 $(document).ready(() => {
   const HEIGHT = $(window).height();
   const WIDTH = $(window).width();
-  
+
+  class Drop {
+    constructor(id, screenWidth, screenHeight) {
+      this.id = id;  
+      this.opacity = randRange(50, 100);
+      this.left = `${randRange(0, screenWidth)}px`;
+      this.top = `${randRange(-Math.abs(screenHeight), -90)}px`;
+      this.speed = `${randRange(0, 500) / 100}s`
+    }
+
+    getHTML() {
+      return `<div class=drop id=${this.id}
+          style="left:${this.left};
+          top:${this.top};
+          opacity:${this.opacity}%;
+          -webkit-animation:fall ${this.speed} linear infinite;
+          -moz-animation:fall ${this.speed} linear infinite;
+          -o-animation:fall ${this.speed} linear infinite"></div>`;
+    } 
+  }
+ 
   class Cloud {
     constructor(id, coords, sizeAndOpacity, speed) {
       this.id = id;
@@ -33,20 +53,20 @@ $(document).ready(() => {
   }
   
   const createRain = (intensity) => {
-    const rain = $("<div>", {"class": "rain"});
-    $("body").prepend(rain);  
-    
+    let rainArr = [];
     for (let i = 1; i < intensity; i++) {
-      const dropLeft = randRange(0, WIDTH);
-      const dropTop = randRange(-Math.abs(HEIGHT), -90);
-      const dropOpacity = randRange(0, 200) / 100;
-      $(".rain").append('<div class="drop" id="drop' + i + '"></div>');
-      $("#drop" + i).css("left", dropLeft);
-      $("#drop" + i).css("top", dropTop);
-      $("#drop" + i).css("opacity", "scale( " + dropOpacity + ")");
-      $("#drop" + i).css("-webkit-animation-delay", randRange(0, 500) / 100 + "s");
-      $("#drop" + i).css("-moz-animation-delay", randRange(0, 500) / 100 + "s");
-      $("#drop" + i).css("-o-animation-delay", randRange(0, 500) / 100 + "s");
+      rainArr.push(new Drop(`drop${i}`, WIDTH, HEIGHT));
+    }
+    
+    return rainArr;
+  }
+
+  const drawRain = (rain) => {
+    const container = $("<div>", {"id": "rain"});
+    $("body").prepend(container);
+    
+    for (i in rain) {
+      container.append(rain[i].getHTML());
     }
   }
   
