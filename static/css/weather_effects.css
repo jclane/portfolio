@@ -118,7 +118,7 @@
 	border-radius: 200px;
 	-moz-border-radius: 200px;
 	-webkit-border-radius: 200px;
-	position: relative;
+	position: absolute;
 }
 
 .cloud:before, .cloud:after {
