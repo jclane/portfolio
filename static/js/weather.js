@@ -131,9 +131,10 @@ class Flake {
    * @param {Number} screenHeight Height of the screen.
    */
   constructor(id, screenWidth, screenHeight) {
-    this.id = id;  
-    this.size = `${randRange(2, 10)}px`;
-    this.blur = `${randRange(1, flakeSize)}px`;
+    this.id = id;
+    let sizeAndBlur = randRange(2, 10);
+    this.size = `${sizeAndBlur}px`;
+    this.blur = `${randRange(1, sizeAndBlur)}px`;
     this.left = `${randRange(-50, screenWidth + 50)}px`;
     this.top = `${randRange(-Math.abs(screenHeight), screenHeight)}px`;
     this.speed = `${randRange(8, 15)}s`
@@ -142,15 +143,15 @@ class Flake {
   
   // Returns HTML used to the place the object on the page.
   getHTML() {
-    return `<div class=flake id=${this.id}
+    return `<div class=flakes id=${this.id}
         style="left:${this.left};
         top:${this.top};
         height:${this.size};
         width:${this.size};
         box-shadow:0 0 ${this.blur} 2px #FFF;
-        -webkit-animation:fall ${this.speed} linear infinite;
-        -moz-animation:fall ${this.speed} linear infinite;
-        -o-animation:fall ${this.speed} linear infinite"></div>`;
+        -webkit-animation:snowflakes-fall ${this.speed} linear infinite;
+        -moz-animation:snowflakes-fall ${this.speed} linear infinite;
+        -o-animation:snowflakes-fall ${this.speed} linear infinite"></div>`;
   } 
 }      
 
@@ -301,7 +302,7 @@ $(document).ready(() => {
     requestAnimationFrame(animate);
     setInterval(() => {
       createLightning(context);
-    }, intensity)  
+    }, 7000)  
   }
 
   const handleStorm = (conditions_id) => {

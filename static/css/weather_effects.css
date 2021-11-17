@@ -4,9 +4,6 @@
   border-radius: 50%;
   position: absolute;
   bottom: 200px;
-  -webkit-animation: snowflakes-fall linear infinite;
-  -moz-animation: snowflakes-fall linear infinite;
-  -o-animation: snowflakes-fall linear infinite;
 }
 
 @-webkit-keyframes snowflakes-fall {
