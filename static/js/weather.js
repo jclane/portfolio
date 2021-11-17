@@ -340,7 +340,6 @@ $(document).ready(() => {
   // This will add weather effects;  
   const setWeatherEffects = () => {
     let conditions_id = getConditionsId();
-    conditions_id = "601"; // TODO: delete later
     switch (true) {
       case (inRange(conditions_id, 200, 232)):
           handleStorm(conditions_id);
