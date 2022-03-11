@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
     <head>
       <meta charset="utf-8">
       <title>Justin Lane's Portfolio - {{ page_nfo.title }}</title>
@@ -10,28 +9,31 @@
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
     </head>
+  
+    <body>
+        <div class="container">
+            <header class="header">What's the weather like in {{ weather.location if weather else "..." }}?</header>
+            {% block weather %}
+            {% endblock %}
 
-    <div class="container">
-        <header class="header">What's the weather like in {{ weather.location if weather else "..." }}?</header>
-        {% block weather %}
-        {% endblock %}
-
-        <form id="weather-app-form" name="weather-app-form" action="{{ url_for("weather") }}" method="POST">
-            {{ form.hidden_tag() }}
-            {{ form.zipcode(placeholder="Enter zipcode...") }}
-            <div id="temp_units_radios">
-            {% for subfield in form.temp_units %}
-                <div id={{ "control_group_" + subfield.id[-1:] }} >
-                    {{ subfield }}
-                    {{ subfield.label }}
+            <form id="weather-app-form" name="weather-app-form" action="{{ url_for("weather") }}" method="POST">
+                {{ form.hidden_tag() }}
+                {{ form.zipcode(placeholder="Enter zipcode...") }}
+                <div id="temp_units_radios">
+                {% for subfield in form.temp_units %}
+                    <div id={{ "control_group_" + subfield.id[-1:] }} >
+                        {{ subfield }}
+                        {{ subfield.label }}
+                    </div>
+                {% endfor %}
                 </div>
-            {% endfor %}
-            </div>
-            {{ form.submit }}
-        </form>
-    </div>
-
+                {{ form.submit }}
+            </form>
+        </div>
+      
     <link rel="stylesheet" type="text/css" href="./static/css/weather.css">
     <link rel="stylesheet" type="text/css" href="./static/css/weather_effects.css">
     <script src="./static/js/jquery-3.6.0.min.js"></script>
     <script src="./static/js/weather.js"></script>
+  </body>
+</html>
