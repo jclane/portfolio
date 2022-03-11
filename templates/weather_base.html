@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
     <head>
       <meta charset="utf-8">
       <title>Justin Lane's Portfolio - {{ page_nfo.title }}</title>
@@ -10,6 +9,7 @@
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
     </head>
+  
     <body>
         <div class="container">
             <header class="header">What's the weather like in {{ weather.location if weather else "..." }}?</header>
@@ -30,10 +30,10 @@
                 {{ form.submit }}
             </form>
         </div>
-
-        <link rel="stylesheet" type="text/css" href="./css/weather.css">
-        <link rel="stylesheet" type="text/css" href="./css/weather_effects.css">
-        <script src="./js/jquery-3.6.0.min.js"></script>
-        <script src="./js/weather.js"></script>
-    </body>
+      
+    <link rel="stylesheet" type="text/css" href="./static/css/weather.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/weather_effects.css">
+    <script src="./static/js/jquery-3.6.0.min.js"></script>
+    <script src="./static/js/weather.js"></script>
+  </body>
 </html>

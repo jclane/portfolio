@@ -1,29 +1,29 @@
 #intro {
-	margin: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 #intro h1 {
-	margin: 0;
-	font-size: 4.5em;
-	font-weight: 700;
+  margin: 0;
+  font-size: 4.5em;
+  font-weight: 700;
 }
 
 #about, #portfolio {
-    background-color: rgb(var(--white));
-    text-align: center;
-    padding: 5% 10%;
-	margin: 10px auto;
-	max-width: 80%;
+  background-color: rgb(var(--white));
+  text-align: center;
+  padding: 5% 10%;
+  margin: 10px auto;
+  max-width: 80%;
 }
 
 #portfolio {
-    padding-left: 2.5%;
-    padding-right: 2.5%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
 }
 
 #portfolio .grid-list {
@@ -44,8 +44,8 @@
 }
 
 .grid-list .item:hover {
-    transform: scale(1.05);
-    z-index: 12;
+  transform: scale(1.05);
+  z-index: 12;
 }
 
 .grid-list .item a {
@@ -81,29 +81,29 @@
 	width: 12px;
 	border-radius: 50%;
 	position: absolute;
-    top: 6px;
-    left: 10px;
+  top: 6px;
+  left: 10px;
 	background-color: #43a3ff;
-    box-shadow: inset 2.5px 2.5px 10px rgb(var(--white));
+  box-shadow: inset 2.5px 2.5px 10px rgb(var(--white));
 	z-index: 11;
 }
 
 .grid-list .item .bar .chevron {
-    box-sizing: border-box;
-    border: 1px solid transparent;
-    border-radius: 100px
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 100px
 }
 
 .grid-list .item .bar .chevron::before,
 .grid-list .item .bar .chevron::after {
-    content: "";
-    display: block;
-    box-sizing: border-box;
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border-bottom: .75px solid;
-    border-right: .75px solid;
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-bottom: .75px solid;
+  border-right: .75px solid;
 }
 
 .grid-list .item .bar .chevron::before {
@@ -119,27 +119,27 @@
 }
 
 .grid-list .item .bar .close-x {
-    box-sizing: border-box;
-    border: 1px solid transparent;
-    border-radius: 40px
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 40px
 }
 
 .grid-list .item .bar .close-x::after,
 .grid-list .item .bar .close-x::before {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
-    width: 8px;
-    height: 0.10px;
-    background: currentColor;
-    transform: rotate(45deg);
-    border-radius: 5px;
-    top: 12px;
-    right: 9px
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  width: 8px;
+  height: 0.10px;
+  background: currentColor;
+  transform: rotate(45deg);
+  border-radius: 5px;
+  top: 12px;
+  right: 9px
 }
 
 .grid-list .item .bar .close-x::after {
-    transform: rotate(-45deg)
+  transform: rotate(-45deg)
 }
 
 /***************************/
@@ -158,10 +158,10 @@
 }
 
 .overlay {
-    display: flex;
-    flex-flow: row wrap;
-    align-content: center;
-    justify-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -173,9 +173,9 @@
 }
 
 .overlay .tag {
-    background-color: rgba(var(--black), .75);
-    border: 1px rgba(var(--tertiary), .85) solid;
-    color: rgba(var(--tertiary), .85);
+  background-color: rgba(var(--black), .75);
+  border: 1px rgba(var(--tertiary), .85) solid;
+  color: rgba(var(--tertiary), .85);
 	margin: 2.5px;
 	padding: 1px 5px;
 	text-align: center;
@@ -186,26 +186,26 @@
 }
 
 .button {
-    color: rgb(var(--white));
-    background-color: rgb(var(--black));
-    border: none;
-    padding: 8px 16px;
-    text-align:center;
-    cursor:pointer;
-    width: 49%;
+  color: rgb(var(--white));
+  background-color: rgb(var(--black));
+  border: none;
+  padding: 8px 16px;
+  text-align:center;
+  cursor:pointer;
+  width: 49%;
 }
 
 .button:hover {
-    color: rgb(var(--white));
-    background-color: rgb(var(--black));
+  color: rgb(var(--white));
+  background-color: rgb(var(--black));
 }
 
 .btn-left {
-    float: left;
+  float: left;
 }
 
 .btn-right {
-    float: right;
+  float: right;
 }
 
 /************************/
@@ -219,25 +219,24 @@
 	}
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 414px) {
 	#about, #portfolio {
-        padding: 5px 10px;
-	    max-width: 100%;
-    }
+    padding: 5px 10px;
+    max-width: 100%;
+  }
 
-    #portfolio {
-        display: flex;
-        flex-flow: row wrap;
-        align-content: center;
-        justify-content: center;
-        gap: 1px;
-    }
+  #portfolio {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 1px;
+  }
 
 	.grid-list .item .bar .circle,
 	.close-x, .chevron	{
 		display: none;
 	}
-
 }
 
 /**********************/

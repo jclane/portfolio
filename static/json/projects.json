@@ -2,42 +2,42 @@
     {
     "title":"Contact Page",
     "link_url":"./contact",
-    "img_url":"./img/screenshots/contact.jpg",
+    "img_url":"./static/img/screenshots/contact.jpg",
     "tags":["HTML","CSS","Python", "Flask", "Python-WTForms", "Flask-Mail"]
     },
     {
     "title":"D3 Scatter Plot",
     "link_url":"https://codepen.io/jclane/full/wvMgYBj",
-    "img_url":"./img/screenshots/d3_scatterplot.jpg",
+    "img_url":"./static/img/screenshots/d3_scatterplot.jpg",
     "tags":["D3", "HTML", "CSS","Javascript"]
     },
     {
     "title":"React Markdown Previewer",
     "link_url":"https://codepen.io/jclane/full/xNPjWd",
-    "img_url":"./img/screenshots/markdown_previewer.jpg",
+    "img_url":"./static/img/screenshots/markdown_previewer.jpg",
     "tags":["React", "HTML", "CSS", "Javascript"]
     },
     {
     "title":"Calculator",
     "link_url":"https://codepen.io/jclane/full/yWPXRZ",
-    "img_url":"./img/screenshots/calculator.jpg",
+    "img_url":"./static/img/screenshots/calculator.jpg",
     "tags":["React", "HTML", "CSS", "Javascript"]
     },
     {
     "title":"Weather App",
     "link_url":"./weather",
-    "img_url":"./img/screenshots/weather_app.jpg",
+    "img_url":"./static/img/screenshots/weather_app.jpg",
     "tags":["Requests", "Beautiful-Soup", "HTML", "CSS", "Javascript", "jQuery", "OpenWeatherMap API"]
     },
     {
     "title":"Example Project 5",
     "link_url":"#",
-    "img_url":"./img/screenshots/example.jpg"
+    "img_url":"./static/img/screenshots/example.jpg"
     },
     {
     "title":"My Portfolio Page",
     "link_url":"./",
-    "img_url":"./img/screenshots/portfolio.jpg",
+    "img_url":"./static/img/screenshots/portfolio.jpg",
     "tags":["HTML","CSS","Python", "Flask"]
     }
 ]

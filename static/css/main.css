@@ -69,7 +69,7 @@ html, body {
 /* begin media queries */
 /********************/
 
-@media only screen and (max-width: 250px) {
+@media only screen and (max-width: 414px) {
 	.footer .inline-list .profile-link:nth-child(n+3)	{
 		display: none;
 	}
