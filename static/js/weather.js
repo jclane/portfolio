@@ -3,12 +3,12 @@ const inRange = (num, min, max) => { return num >= min && num <= max }
 const createVector = (x, y) => { return {"x":x, "y":y} };
 
 /**
- * Object representing a fragment of a lightning bolt with start and ends 
+ * Object representing a fragment of a lightning bolt with start and ends
  * points, line thickness, and opactity for an HTML5 canvas. Static properties
  * [boltLength], [boltThickness], and [offset] can be changed here to alter the
  * general appearance of the lightning strikes.
  */
-class LightningFragment { 
+class LightningFragment {
   static boltLength = 5;
   static boltThickness = 2.5;
   static offset = 5;
@@ -50,7 +50,7 @@ class LightningFragment {
     this.ctx.clearRect(0, 0, this.ctx.canvas.clientWidth, this.ctx.canvas.clientHeight);
     this.ctx.beginPath();
   }
-  
+
   // Draws the line on [this.ctx].
   draw() {
     return this.line(this.start, this.end, this.thickness, this.opacity);
@@ -58,7 +58,7 @@ class LightningFragment {
 }
 
 /**
- * Object representing a cloud, which can be appended to a webpage using the 
+ * Object representing a cloud, which can be appended to a webpage using the
  * [getHTML] method.
  */
 class Cloud {
@@ -66,7 +66,7 @@ class Cloud {
    * @param {String} id Unique ID of the object.
    * @param {Number} screenWidth Width of the screen.
    * @param {Number} screenHeight Height of the screen.
-   */  
+   */
   constructor(id, screenWidth, screenHeight) {
     this.id = id;
     this.className = "cloud";
@@ -88,7 +88,7 @@ class Cloud {
         -moz-animation:moveclouds ${this.speed} linear infinite;
         -o-animation:moveclouds ${this.speed} linear infinite"></div>`;
   }
-}  
+}
 
 /**
  * Object representing a raindrop, which can be appended to a webpage using the
@@ -101,13 +101,13 @@ class Drop {
    * @param {Number} screenHeight Height of the screen.
    */
   constructor(id, screenWidth, screenHeight) {
-    this.id = id;  
+    this.id = id;
     this.opacity = randRange(50, 100);
     this.left = `${randRange(0, screenWidth)}px`;
     this.top = `${randRange(-Math.abs(screenHeight), -90)}px`;
     this.speed = `${randRange(0, 500) / 100}s`
   }
-  
+
   // Returns HTML used to the place the object on the page.
   getHTML() {
     return `<div class=drop id=${this.id}
@@ -117,7 +117,7 @@ class Drop {
         -webkit-animation:fall ${this.speed} linear infinite;
         -moz-animation:fall ${this.speed} linear infinite;
         -o-animation:fall ${this.speed} linear infinite"></div>`;
-  } 
+  }
 }
 
 /**
@@ -138,9 +138,9 @@ class Flake {
     this.left = `${randRange(-50, screenWidth + 50)}px`;
     this.top = `${randRange(-Math.abs(screenHeight), screenHeight)}px`;
     this.speed = `${randRange(8, 15)}s`
-    
+
   }
-  
+
   // Returns HTML used to the place the object on the page.
   getHTML() {
     return `<div class=flakes id=${this.id}
@@ -152,12 +152,20 @@ class Flake {
         -webkit-animation:snowflakes-fall ${this.speed} linear infinite;
         -moz-animation:snowflakes-fall ${this.speed} linear infinite;
         -o-animation:snowflakes-fall ${this.speed} linear infinite"></div>`;
-  } 
-}      
+  }
+}
 
 $(document).ready(() => {
   let HEIGHT = $(window).height();
   let WIDTH = $(window).width();
+
+  const requestPosition = () => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(getZip);
+    }
+  }
+
+  console.log(requestPosition());
 
   // Creates object based on [type].
   const createObj = (type, num) => {
@@ -177,12 +185,12 @@ $(document).ready(() => {
     for (let i = 1; i < intensity; i++) {
       arr.push(createObj(type, i));
     }
-    
+
     return arr;
   }
 
-  /** 
-  * Calls the [getHTML] method on each item in [objs] and appends them to an 
+  /**
+  * Calls the [getHTML] method on each item in [objs] and appends them to an
   * HTML container [div] with id of [type].
   */
   const addObjsToPage = (type, objs) => {
@@ -193,7 +201,7 @@ $(document).ready(() => {
       container.append(objs[i].getHTML())
     }
   }
- 
+
   const handleRain = (conditions_id) => {
     let drops;
     switch (conditions_id) {
@@ -209,7 +217,7 @@ $(document).ready(() => {
       case "500": // light/unknown
       default:
         drops = 250;
-    } 
+    }
     arr = createWeatherArray("drop", drops);
     addObjsToPage("rain", arr);
   }
@@ -245,7 +253,7 @@ $(document).ready(() => {
         flakes = 700;
       case "600":
       default: // light/unkonwn
-        flakes = 250;      
+        flakes = 250;
     }
     arr = createWeatherArray("flake", flakes);
     addObjsToPage("snow", arr);
@@ -262,10 +270,10 @@ $(document).ready(() => {
       let lastX1 = lastBolt.end.x;
       let lastX2 = randRange(lastX1 - 5, lastX1 + 5);
       lightning.push(new LightningFragment(
-        createVector(lastX1, lastBolt.end.y), 
-        createVector(lastX2, lastBolt.end.y + LightningFragment.boltLength), 
-        lastBolt.thickness, 
-        lastBolt.opacity, 
+        createVector(lastX1, lastBolt.end.y),
+        createVector(lastX2, lastBolt.end.y + LightningFragment.boltLength),
+        lastBolt.thickness,
+        lastBolt.opacity,
         context
       ));
     }
@@ -276,7 +284,7 @@ $(document).ready(() => {
     $("body").prepend(storm);
     const canvas = document.getElementById("tstorm-canvas");
     const context = canvas.getContext("2d");
-    
+
     const animate = () => {
       lightning[lightning.length - 1].clearCanvas();
 
@@ -294,7 +302,7 @@ $(document).ready(() => {
     const setup = (context) => {
       createLightning(context);
       for (let i = 0 ; i < lightning.length ; i++) {
-        lightning[i].draw();       
+        lightning[i].draw();
       }
     }
 
@@ -302,7 +310,7 @@ $(document).ready(() => {
     requestAnimationFrame(animate);
     setInterval(() => {
       createLightning(context);
-    }, 7000)  
+    }, 7000)
   }
 
   const handleStorm = (conditions_id) => {
@@ -329,15 +337,15 @@ $(document).ready(() => {
         break;
       default:  // light/unknown
         createStorm(7000);
-    }    
+    }
   }
-   
+
   const getConditionsId = () => {
     const id = $("#hidden_field").val();
     return id;
   }
 
-  // This will add weather effects;  
+  // This will add weather effects;
   const setWeatherEffects = () => {
     let conditions_id = getConditionsId();
     switch (true) {
@@ -352,10 +360,10 @@ $(document).ready(() => {
           break;
       case (inRange(conditions_id, 801, 804)):
           handleClouds(conditions_id);
-          break;     
+          break;
     }
   }
-  
+
   // This will change the background depending on the conditions
   const setBackgroundColor = () => {
     const tempText = $("span#curr_temp").text();
