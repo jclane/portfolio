@@ -168,7 +168,7 @@ $(document).ready(() => {
     }
   }
 
-  requestPostion();
+  requestPosition();
 
   // Creates object based on [type].
   const createObj = (type, num) => {
