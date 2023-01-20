@@ -201,10 +201,12 @@
 }
 
 .btn-left {
+  display: none;
   float: left;
 }
 
 .btn-right {
+  display: none;
   float: right;
 }
 
@@ -213,14 +215,14 @@
 /**********************/
 
 @media only screen and (max-width: 1024px) {
-	.grid-list {
-		flex-flow: column;
-		align-content: center;
-	}
+  .grid-list {
+    flex-flow: column;
+    align-content: center;
+  }
 }
 
 @media only screen and (max-width: 414px) {
-	#about, #portfolio {
+  #about, #portfolio {
     padding: 5px 10px;
     max-width: 100%;
   }
@@ -233,10 +235,15 @@
     gap: 1px;
   }
 
-	.grid-list .item .bar .circle,
-	.close-x, .chevron	{
-		display: none;
-	}
+  .grid-list .item .bar .circle,
+  .close-x, .chevron	{
+    display: none;
+  }
+
+  .btn-right, .btn-left {
+    display: block;
+  }
+  
 }
 
 /**********************/
