@@ -1,3 +1,4 @@
+
 const randRange = (minNum, maxNum) => { return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum }
 const inRange = (num, min, max) => { return num >= min && num <= max }
 const createVector = (x, y) => { return {"x":x, "y":y} };
@@ -159,7 +160,7 @@ $(document).ready(() => {
   let HEIGHT = $(window).height();
   let WIDTH = $(window).width();
 
-  const requestPosition = () => {
+  function requestPosition() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(res => {
         console.log(res);
@@ -167,7 +168,7 @@ $(document).ready(() => {
     }
   }
 
-  console.log(requestPosition());
+  requestPostion();
 
   // Creates object based on [type].
   const createObj = (type, num) => {
