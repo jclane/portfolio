@@ -161,7 +161,9 @@ $(document).ready(() => {
 
   const requestPosition = () => {
     if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(getZip);
+      navigator.geolocation.getCurrentPosition(res => {
+        console.log(res);
+      });
     }
   }
 
