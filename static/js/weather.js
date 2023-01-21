@@ -235,7 +235,7 @@ $(document).ready(() => {
         clouds = 16;
         break;
       case "804":  // overcast
-        clouds = 160;
+        clouds = 60;
         $("#clouds").css("background", "rgba(0, 0, 0, .3)");
         break;
       case "801":
