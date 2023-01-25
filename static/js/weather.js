@@ -164,12 +164,13 @@ $(document).ready(() => {
   function requestPosition() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(success => {
-	const lat = success.coords.latitude;
-	const log = success.coords.longitude;
-        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={log}&zoom=14`).then(res => res.json())
-		.then(data => console.log(data.address.postcode));
+	      const lat = success.coords.latitude;
+	      const log = success.coords.longitude;
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={log}&zoom=14`)
+          .then(res => res.json())
+		      .then(data => console.log(data.address.postcode));
       }, error => {
-	console.log(error);
+	      console.log(error);
       });
     }
   }
