@@ -167,7 +167,6 @@ $(document).ready(() => {
         const lat = success.coords.latitude;
         const log = success.coords.longitude;
         const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${log}&zoom=14`;
-        console.log(url); 
         fetch(url)
           .then(res => res.json())
           .then(data => $("#zipcode").val(data.address.postcode));
