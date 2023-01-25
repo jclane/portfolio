@@ -166,7 +166,7 @@ $(document).ready(() => {
       navigator.geolocation.getCurrentPosition(success => {
 	      const lat = success.coords.latitude;
 	      const log = success.coords.longitude;
-        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={log}&zoom=14`)
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${log}&zoom=14`)
           .then(res => res.json())
 		      .then(data => console.log(data.address.postcode));
       }, error => {
