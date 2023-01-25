@@ -170,7 +170,7 @@ $(document).ready(() => {
         console.log(url); 
         fetch(url)
           .then(res => res.json())
-          .then(data => $("#zipcode").val(data.address.postcode)));
+          .then(data => $("#zipcode").val(data.address.postcode));
       }, error => {
 	 console.log(error);
       });
