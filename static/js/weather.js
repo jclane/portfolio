@@ -1,4 +1,5 @@
 
+
 const randRange = (minNum, maxNum) => { return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum }
 const inRange = (num, min, max) => { return num >= min && num <= max }
 const createVector = (x, y) => { return {"x":x, "y":y} };
@@ -162,8 +163,12 @@ $(document).ready(() => {
 
   function requestPosition() {
     if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(res => {
-        console.log(res);
+      navigator.geolocation.getCurrentPosition(success => {
+        console.log(success);
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=37.988430&lon=-85.716476&zoom=14`).then(res => res.json())
+		.then(data => console.log(data));
+      }, error => {
+	console.log(error);
       });
     }
   }
