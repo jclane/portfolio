@@ -164,11 +164,13 @@ $(document).ready(() => {
   function requestPosition() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(success => {
-	      const lat = success.coords.latitude;
-	      const log = success.coords.longitude;
+        const lat = success.coords.latitude;
+        const log = success.coords.longitude;
+        const url = ``;
+        console.log(url); 
         fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${log}&zoom=14`)
           .then(res => res.json())
-		      .then(data => $("#zipcode").val(data.address.postcode)));
+          .then(data => $("#zipcode").val(data.address.postcode)));
       }, error => {
 	      console.log(error);
       });
