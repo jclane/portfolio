@@ -92,4 +92,10 @@
     .contact-form .form-input {
 	width: 75%;
     }
+
+    .g-recaptcha {
+        grid-column: span 2;
+	place-self: end;
+        scale: 75%;
+    }
 }
