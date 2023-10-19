@@ -27,7 +27,7 @@
 	resize: none;
 }
 
-.contact-form .g-recaptcha {
+.g-recaptcha {
 	grid-column: 2;
 	place-self: start;
 }
