@@ -82,3 +82,7 @@
     padding: 5px;
 }
 /* End message styling */
+
+@media only (max-width: 767px) {
+    .contact-form: 95%;
+}
