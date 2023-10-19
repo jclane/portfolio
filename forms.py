@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.recaptcha import RecaptchaField
 from wtforms import IntegerField, RadioField, StringField, SubmitField, TextAreaField
 from wtforms.validators import InputRequired, Email, ValidationError
 
@@ -8,6 +9,7 @@ class ContactForm(FlaskForm):
                                   Email("Please enter your email address.")])
     subject = StringField("Subject", [InputRequired("Please a subject.")])
     message = TextAreaField("Message", [InputRequired("Please enter a message.")])
+    recaptcha = RecaptchaField()
     submit = SubmitField("Send")
 
 class WeatherAppForm(FlaskForm):
