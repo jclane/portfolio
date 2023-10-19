@@ -6,6 +6,7 @@
 	padding: 15px;
 	box-shadow: 5px 5px 22px 5px rgb(var(--black));
 	border-radius: 15px;
+	overflow: hidden;
 }
 
 .contact-form h1 {
@@ -83,8 +84,12 @@
 }
 /* End message styling */
 
-@media only (max-width: 767px) {
+@media only screen and (max-width: 767px) {
     .contact-form {
         width: 95%;
+    }
+
+    .contact-form .form-input {
+	width: 75%;
     }
 }
