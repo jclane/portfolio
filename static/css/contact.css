@@ -84,5 +84,7 @@
 /* End message styling */
 
 @media only (max-width: 767px) {
-    .contact-form: 95%;
+    .contact-form {
+        width: 95%;
+    }
 }
