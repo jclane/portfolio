@@ -27,6 +27,11 @@
 	resize: none;
 }
 
+.contact-form .g-recaptcha {
+	grid-column: 2;
+	place-self: start;
+}
+
 .contact-form #submit {
 	text-align: center;
 	grid-column: span 2;
