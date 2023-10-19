@@ -20,6 +20,9 @@ app.config['MAIL_USERNAME'] = os.environ.get("MAIL_USERNAME")
 app.config['MAIL_PASSWORD'] = os.environ.get("MAIL_PASSWORD")
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
+app.config['RECAPTCHA_PUBLIC_KEY'] = os.environ.get("RECAPTCHA_PUBLIC_KEY")
+app.config['RECAPTCHA_API_SERVER'] = os.environ.get("RECAPTCHA_API_SERVER")
+app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get("RECAPTCHA_PRIVATE_KEY")
 app.secret_key = os.environ.get("APP_SECRET_KEY")
 
 mail = Mail(app)
