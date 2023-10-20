@@ -6,6 +6,7 @@
 	padding: 15px;
 	box-shadow: 5px 5px 22px 5px rgb(var(--black));
 	border-radius: 15px;
+	overflow: hidden;
 }
 
 .contact-form h1 {
@@ -82,3 +83,20 @@
     padding: 5px;
 }
 /* End message styling */
+
+@media only screen and (max-width: 767px) {
+    .contact-form {
+        width: 95%;
+        overflow: hidden;
+    }
+
+    .contact-form .form-input {
+	width: 75%;
+    }
+
+    .g-recaptcha {
+        grid-column: span 2;
+	place-self: end;
+        scale: 75%;
+    }
+}
