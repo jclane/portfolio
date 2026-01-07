@@ -30,11 +30,6 @@
     "tags":["Requests", "Beautiful-Soup", "HTML", "CSS", "Javascript", "jQuery", "OpenWeatherMap API"]
     },
     {
-    "title":"Example Project 5",
-    "link_url":"#",
-    "img_url":"./static/img/screenshots/example.jpg"
-    },
-    {
     "title":"My Portfolio Page",
     "link_url":"./",
     "img_url":"./static/img/screenshots/portfolio.jpg",

@@ -36,7 +36,6 @@ def index():
       "scripts": ["./static/js/slider.js"]
     }
     path = Path("./static/json/projects.json")
-    print(path)
     with open(path, "r") as f:
         projects = json.load(f)
 
