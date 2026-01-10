@@ -381,7 +381,7 @@ $(document).ready(() => {
   }
 
   // This will change the background depending on the conditions
-  const setBackgroundColor = () => {
+  const setPageColors = () => {
     const daytime = isDaytime();
     const tempText = $("span#curr_temp").text();
     const currTemp = Math.round(tempText.slice(0, -1));
@@ -389,30 +389,32 @@ $(document).ready(() => {
                         "#weather-app-form").val();
     const convertedTemp = (tempUnits === "c") ? (currTemp * 9/5) + 32 : currTemp;
 
-    switch (true) {
-      case !daytime:
-        $("body").css({ background: "black" });
-        $("body").css({ color: "black" });
-        break;
-      case convertedTemp <= 33: // Freezing
-        $("body").css({ background: "hsl(180, 50%, 75%)" });
-        $("body").css({ color: "hsl(180, 50%, 30%)" });
-        break;
-      case convertedTemp <= 59: // Cold
-        $("body").css({ background: "hsl(180, 100%, 95%)" });
-        $("body").css({ color: "hsl(180, 50%, 55%)" });
-        break;
-      case convertedTemp <= 75: // Warm
-        $("body").css({ background: "hsl(50, 100%, 77%)" });
-        $("body").css({ color: "hsl(50, 50%, 45%)" });
-        break;
-      case convertedTemp >= 76: // HOT
-        $("body").css({ background: "hsl(15, 100%, 56%)" });
-        $("body").css({ color: "hsl(15, 30%, 25%)" });
-        break;
-    }
+	if (!daytime) {
+	  $("body").css({ background: "hsl(180, 10%, 10%" });
+	  if (convertedTemp <= 33) { // Freezing
+	    $("body").css({ color: "hsl(180, 50%, 75%)" });
+	  } else if (convertedTemp <= 59) { // Cold
+	    $("body").css({ color: "hsl(180, 100%, 95%)" });
+	  } else if (convertedTemp <= 75) { // Warm
+		$("body").css({ color: "hsl(50, 100%, 77%)" });
+	  } else if (convertedTemp >= 76) { // Hot
+		$("body").css({ color: "hsl(15, 100%, 56%)" });
+	  }
+	} else if (convertedTemp <= 33) { // Freezing
+	  $("body").css({ background: "hsl(180, 50%, 75%)" });
+	  $("body").css({ color: "hsl(180, 50%, 30%)" });
+	} else if (convertedTemp <= 59) { // Cold
+	  $("body").css({ background: "hsl(180, 100%, 95%)" });
+	  $("body").css({ color: "hsl(180, 50%, 55%)" });
+	} else if (convertedTemp <= 75) { // Warm
+	  $("body").css({ background: "hsl(50, 100%, 77%)" });
+	  $("body").css({ color: "hsl(50, 50%, 45%)" });
+	} else if (convertedTemp >= 76) { // Hot
+	  $("body").css({ background: "hsl(15, 100%, 56%)" });
+	  $("body").css({ color: "hsl(15, 30%, 25%)" });
+	}
   }
 
-  setBackgroundColor();
+  setPageColors();
   setWeatherEffects();
 });
