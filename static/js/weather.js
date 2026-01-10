@@ -368,12 +368,15 @@ $(document).ready(() => {
     switch (true) {
       case (inRange(conditionsId, 200, 232)):
           handleStorm(conditions_id);
+		  handleClouds(804);
           break;
       case (inRange(conditionsId, 500, 531)):
           handleRain(conditionsId);
+		  handleClouds(0);
           break;
       case (inRange(conditionsId, 600, 622)):
           handleSnow(conditionsId);
+		  handleClouds(804);
           break;
       case (inRange(conditionsId, 801, 804)):
           handleClouds(conditionsId);
