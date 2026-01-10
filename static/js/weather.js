@@ -421,6 +421,7 @@ $(document).ready(() => {
 	  isSunObscured() ? $("body").css({ background: "hsl(180, 50%, 50%)" }) : $("body").css({ background: "hsl(180, 50%, 75%)" });
       $("body").css({ color: "hsl(180, 50%, 30%)" });
     } else if (convertedTemp <= 59) { // Cold
+	  console.log(isSunObscured());
 	  isSunObscured() ? $("body").css({ background: "hsl(180, 100%, 50%)" }) : $("body").css({ background: "hsl(180, 100%, 95%)" });
       $("body").css({ color: "hsl(180, 50%, 55%)" });
     } else if (convertedTemp <= 75) { // Warm
