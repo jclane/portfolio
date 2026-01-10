@@ -421,7 +421,7 @@ $(document).ready(() => {
 	  isSunObscured() ? $("body").css({ background: "hsl(180, 50%, 15%)" }) : $("body").css({ background: "hsl(180, 50%, 75%)" });
       $("body").css({ color: "hsl(180, 50%, 30%)" });
     } else if (convertedTemp <= 59) { // Cold
-	  isSunObscured() ? $("body").css({ background: "hsl(180, 100%, 25%)" }) : $("body").css({ background: "hsl(180, 100%, 95%)" });
+	  isSunObscured() ? $("body").css({ background: "hsl(180, 80%, 25%)" }) : $("body").css({ background: "hsl(180, 100%, 95%)" });
       $("body").css({ color: "hsl(180, 50%, 55%)" });
     } else if (convertedTemp <= 75) { // Warm
 	  isSunObscured() ? $("body").css({ background: "hsl(50, 100%, 15%)" }) : $("body").css({ background: "hsl(50, 100%, 75%)" });
