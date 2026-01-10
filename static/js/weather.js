@@ -422,7 +422,7 @@ $(document).ready(() => {
       $("body").css({ color: "hsl(180, 50%, 30%)" });
     } else if (convertedTemp <= 59) { // Cold
 	  isSunObscured() ? console.log("SUN OBSCURED") : console.log("SUN NOT OBSCURED");
-	  isSunObscured() ? $("body").css({ background: "hsl(180, 100%, 0%)" }) : $("body").css({ background: "hsl(180, 100%, 95%)" });
+	  isSunObscured() ? $("body").css({ background: "hsl(180, 100%, 25%)" }) : $("body").css({ background: "hsl(180, 100%, 95%)" });
       $("body").css({ color: "hsl(180, 50%, 55%)" });
     } else if (convertedTemp <= 75) { // Warm
 	  isSunObscured() ? $("body").css({ background: "hsl(50, 100%, 50%)" }) : $("body").css({ background: "hsl(50, 100%, 75%)" });
