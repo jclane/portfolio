@@ -7,7 +7,9 @@ def get_weather(zipcode, units):
     if "Error" not in response.text:
         rjson = response.json()
         weather = {
-	  "curr_time": rjson["current"]["dt"],
+	  "curr_time": rjson["dt"],
+	  "sunrise": rjson["sys"]["sunrise"],
+          "sunset": rjson["sys"]["sunset"],
           "conditions": rjson["weather"][0]["main"],
           "conditions_id": rjson["weather"][0]["id"],
           "icon": rjson["weather"][0]["icon"],

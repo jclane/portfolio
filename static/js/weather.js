@@ -354,9 +354,11 @@ $(document).ready(() => {
     return id;
   }
 
-  const getCurrentTime = () => {
-    const time = $("#hidden_dt_field").val();
-    return time;
+  const isDaytime = () => {
+    const date = new Date($("#hidden_dt_field").val() * 1000);
+    const sunrise = $("#hidden_sunrise").val();
+    const sunset = $("#hidden_sunset").val();
+    return date >= sunrise && date < sunset;
   }
 
   // This will add weather effects;
@@ -380,6 +382,7 @@ $(document).ready(() => {
 
   // This will change the background depending on the conditions
   const setBackgroundColor = () => {
+    const daytime = isDaytime();
     const tempText = $("span#curr_temp").text();
     const currTemp = Math.round(tempText.slice(0, -1));
     const tempUnits = $("input[name=temp_units]:checked",
@@ -387,6 +390,10 @@ $(document).ready(() => {
     const convertedTemp = (tempUnits === "c") ? (currTemp * 9/5) + 32 : currTemp;
 
     switch (true) {
+      case !daytime:
+        $("body").css({ background: "black" });
+        $("body").css({ color: "black" });
+        break;
       case convertedTemp <= 33: // Freezing
         $("body").css({ background: "hsl(180, 50%, 75%)" });
         $("body").css({ color: "hsl(180, 50%, 30%)" });
