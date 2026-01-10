@@ -7,7 +7,8 @@
             <div id="curr_conditions">
                 <img id="icon" src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">
                 <span id="conditions">{{ weather.conditions }}</span>
-                <input type="hidden" id="hidden_field" value={{ weather.conditions_id }} />
+		<input type="hidden" id="hidden_dt_field" value={{ weather.curr_time }} />
+                <input type="hidden" id="hidden_id_field" value={{ weather.conditions_id }} />
             </div>
             <div id="temps">
                 <span id="curr_temp">{{ weather.curr_temp }}&deg;</span>

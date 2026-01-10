@@ -1,5 +1,3 @@
-
-
 const randRange = (minNum, maxNum) => { return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum }
 const inRange = (num, min, max) => { return num >= min && num <= max }
 const createVector = (x, y) => { return {"x":x, "y":y} };
@@ -352,8 +350,13 @@ $(document).ready(() => {
   }
 
   const getConditionsId = () => {
-    const id = $("#hidden_field").val();
+    const id = $("#hidden_id_field").val();
     return id;
+  }
+
+  const getCurrentTime = () => {
+    const time = $("#hidden_dt_field").val();
+    return time;
   }
 
   // This will add weather effects;
