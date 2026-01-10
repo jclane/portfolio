@@ -372,7 +372,7 @@ $(document).ready(() => {
           break;
       case (inRange(conditionsId, 500, 531)):
           handleRain(conditionsId);
-		  handleClouds(0);
+		  handleClouds(804);
           break;
       case (inRange(conditionsId, 600, 622)):
           handleSnow(conditionsId);
