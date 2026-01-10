@@ -356,28 +356,45 @@ $(document).ready(() => {
 
   const isDaytime = () => {
     const date = new Date($("#hidden_dt_field").val() * 1000);
-    const sunrise = $("#hidden_sunrise").val();
-    const sunset = $("#hidden_sunset").val();
+    const sunrise = new Date($("#hidden_sunrise").val() * 1000);
+    const sunset = new Date($("#hidden_sunset").val() * 1000);
+
     return date >= sunrise && date < sunset;
   }
 
   // This will add weather effects;
   const setWeatherEffects = () => {
-    let conditions_id = getConditionsId();
+    let conditionsId = getConditionsId();
     switch (true) {
-      case (inRange(conditions_id, 200, 232)):
+      case (inRange(conditionsId, 200, 232)):
           handleStorm(conditions_id);
           break;
-      case (inRange(conditions_id, 500, 531)):
-          handleRain(conditions_id);
+      case (inRange(conditionsId, 500, 531)):
+          handleRain(conditionsId);
           break;
-      case (inRange(conditions_id, 600, 622)):
-          handleSnow(conditions_id);
+      case (inRange(conditionsId, 600, 622)):
+          handleSnow(conditionsId);
           break;
-      case (inRange(conditions_id, 801, 804)):
-          handleClouds(conditions_id);
+      case (inRange(conditionsId, 801, 804)):
+          handleClouds(conditionsId);
           break;
     }
+  }
+
+  const isSunObscured = () => {
+    let conditionsId = getConditionsId();
+    switch (true) {
+      case (inRange(conditionsId, 200, 232)):
+        return 1;
+      case (inRange(conditionsId, 502, 531)):
+        return 1;
+      case (inRange(conditionsId, 602, 622)):
+        return 1;
+      case (conditionsId == 804):
+        return 1;
+    }
+
+    return 0;
   }
 
   // This will change the background depending on the conditions
@@ -389,30 +406,30 @@ $(document).ready(() => {
                         "#weather-app-form").val();
     const convertedTemp = (tempUnits === "c") ? (currTemp * 9/5) + 32 : currTemp;
 
-	if (!daytime) {
-	  $("body").css({ background: "hsl(180, 10%, 10%" });
-	  if (convertedTemp <= 33) { // Freezing
-	    $("body").css({ color: "hsl(180, 50%, 75%)" });
-	  } else if (convertedTemp <= 59) { // Cold
-	    $("body").css({ color: "hsl(180, 100%, 95%)" });
-	  } else if (convertedTemp <= 75) { // Warm
-		$("body").css({ color: "hsl(50, 100%, 77%)" });
-	  } else if (convertedTemp >= 76) { // Hot
-		$("body").css({ color: "hsl(15, 100%, 56%)" });
-	  }
-	} else if (convertedTemp <= 33) { // Freezing
-	  $("body").css({ background: "hsl(180, 50%, 75%)" });
-	  $("body").css({ color: "hsl(180, 50%, 30%)" });
-	} else if (convertedTemp <= 59) { // Cold
-	  $("body").css({ background: "hsl(180, 100%, 95%)" });
-	  $("body").css({ color: "hsl(180, 50%, 55%)" });
-	} else if (convertedTemp <= 75) { // Warm
-	  $("body").css({ background: "hsl(50, 100%, 77%)" });
-	  $("body").css({ color: "hsl(50, 50%, 45%)" });
-	} else if (convertedTemp >= 76) { // Hot
-	  $("body").css({ background: "hsl(15, 100%, 56%)" });
-	  $("body").css({ color: "hsl(15, 30%, 25%)" });
-	}
+    if (!daytime) {
+      $("body").css({ background: "hsl(180, 10%, 10%" });
+      if (convertedTemp <= 33) { // Freezing
+        $("body").css({ color: "hsl(180, 50%, 65%)" });
+      } else if (convertedTemp <= 59) { // Cold
+        $("body").css({ color: "hsl(180, 100%, 85%)" });
+      } else if (convertedTemp <= 75) { // Warm
+        $("body").css({ color: "hsl(50, 100%, 65%)" });
+      } else if (convertedTemp >= 76) { // Hot
+        $("body").css({ color: "hsl(15, 100%, 45%)" });
+      }
+    } else if (convertedTemp <= 33) { // Freezing
+      $("body").css({ background: "hsl(180, 50%, 75%)" });
+      $("body").css({ color: "hsl(180, 50%, 30%)" });
+    } else if (convertedTemp <= 59) { // Cold
+      $("body").css({ background: "hsl(180, 100%, 95%)" });
+      $("body").css({ color: "hsl(180, 50%, 55%)" });
+    } else if (convertedTemp <= 75) { // Warm
+      $("body").css({ background: "hsl(50, 100%, 75%)" });
+      $("body").css({ color: "hsl(50, 50%, 45%)" });
+    } else if (convertedTemp >= 76) { // Hot
+      $("body").css({ background: "hsl(15, 100%, 55%)" });
+      $("body").css({ color: "hsl(15, 30%, 25%)" });
+    }
   }
 
   setPageColors();
