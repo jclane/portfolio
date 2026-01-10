@@ -418,16 +418,16 @@ $(document).ready(() => {
         $("body").css({ color: "hsl(15, 100%, 45%)" });
       }
     } else if (convertedTemp <= 33) { // Freezing
-      $("body").css({ background: "hsl(180, 50%, 75%)" });
+	  if (isSunObscured()) ? $("body").css({ background: "hsl(180, 50%, 50%)" }) : $("body").css({ background: "hsl(180, 50%, 75%)" });
       $("body").css({ color: "hsl(180, 50%, 30%)" });
     } else if (convertedTemp <= 59) { // Cold
-      $("body").css({ background: "hsl(180, 100%, 95%)" });
+	  if (isSunObscured()) ? $("body").css({ background: "hsl(180, 100%, 50%)" }) : $("body").css({ background: "hsl(180, 100%, 95%)" });
       $("body").css({ color: "hsl(180, 50%, 55%)" });
     } else if (convertedTemp <= 75) { // Warm
-      $("body").css({ background: "hsl(50, 100%, 75%)" });
+	  if (isSunObscured()) ? $("body").css({ background: "hsl(50, 100%, 50%)" }) : $("body").css({ background: "hsl(50, 100%, 75%)" });
       $("body").css({ color: "hsl(50, 50%, 45%)" });
     } else if (convertedTemp >= 76) { // Hot
-      $("body").css({ background: "hsl(15, 100%, 55%)" });
+	  if (isSunObscured()) ? $("body").css({ background: "hsl(15, 100%, 25%)" }) :	$("body").css({ background: "hsl(15, 100%, 55%)" });
       $("body").css({ color: "hsl(15, 30%, 25%)" });
     }
   }
